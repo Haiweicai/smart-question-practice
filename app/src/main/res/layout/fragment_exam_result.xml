@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/ecoBackground">
+
+    <!-- 顶部标题栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/layout_padding"
+        android:background="?attr/ecoCardBg">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="‹ 返回"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="?attr/ecoPrimary"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="12dp"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_padding">
+
+            <!-- 提示条：主观题待阅卷 / 强制交卷 -->
+            <TextView
+                android:id="@+id/tv_notice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="#8A6D3B"
+                android:background="@drawable/exam_notice_bg"
+                android:padding="12dp"
+                android:visibility="gone"/>
+
+            <!-- ========== 成绩单卡片（美化版） ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/ecoPrimary"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="本次总成绩"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="#CCFFFFFF"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="bottom"
+                        android:layout_marginTop="4dp">
+
+                        <TextView
+                            android:id="@+id/tv_total_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textSize="64sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/ecoOnPrimary"/>
+
+                        <TextView
+                            android:id="@+id/tv_full_score_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/100"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginBottom="14dp"
+                            android:textColor="#CCFFFFFF"/>
+                    </LinearLayout>
+
+                    <!-- 评级标签 -->
+                    <TextView
+                        android:id="@+id/tv_grade_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="?attr/ecoPrimary"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_medium"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:background="@drawable/exam_btn_pill"
+                        android:backgroundTint="?attr/ecoSurface"/>
+
+                    <!-- 客观/主观得分 + 正确率 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="18dp">
+
+                        <!-- 客观题 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@drawable/exam_stat_cell_bg"
+                            android:paddingVertical="12dp"
+                            android:backgroundTint="#1FFFFFFF">
+                            <TextView
+                                android:id="@+id/tv_objective_score"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/ecoOnPrimary"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="客观题得分"
+                                android:textSize="@dimen/text_size_small"
+                                android:textColor="#CCFFFFFF"/>
+                        </LinearLayout>
+
+                        <Space android:layout_width="8dp" android:layout_height="1dp"/>
+
+                        <!-- 主观题 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@drawable/exam_stat_cell_bg"
+                            android:paddingVertical="12dp"
+                            android:backgroundTint="#1FFFFFFF">
+                            <TextView
+                                android:id="@+id/tv_subjective_score"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/ecoOnPrimary"/>
+                            <TextView
+                                android:id="@+id/tv_subjective_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="主观题得分"
+                                android:textSize="@dimen/text_size_small"
+                                android:textColor="#CCFFFFFF"/>
+                        </LinearLayout>
+
+                        <Space android:layout_width="8dp" android:layout_height="1dp"/>
+
+                        <!-- 总正确率 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@drawable/exam_stat_cell_bg"
+                            android:paddingVertical="12dp"
+                            android:backgroundTint="#1FFFFFFF">
+                            <TextView
+                                android:id="@+id/tv_accuracy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--%"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/ecoOnPrimary"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="正确率"
+                                android:textSize="@dimen/text_size_small"
+                                android:textColor="#CCFFFFFF"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 考试信息卡片 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp">
+                <LinearLayout style="@style/CardInnerVertical" android:padding="16dp">
+                    <TextView style="@style/ExamSectionTitle" android:text="📋 考试概况"/>
+
+                    <!-- 2列布局展示更多信息 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="6dp">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <include layout="@layout/exam_info_kv"
+                                android:id="@+id/kv_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                            <include layout="@layout/exam_info_kv"
+                                android:id="@+id/kv_total"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                            <include layout="@layout/exam_info_kv"
+                                android:id="@+id/kv_switch"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <include layout="@layout/exam_info_kv"
+                                android:id="@+id/kv_avg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                            <include layout="@layout/exam_info_kv"
+                                android:id="@+id/kv_unanswered"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                            <include layout="@layout/exam_info_kv"
+                                android:id="@+id/kv_speed"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 题型明细统计 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp">
+                <LinearLayout style="@style/CardInnerVertical" android:padding="16dp">
+                    <TextView style="@style/ExamSectionTitle" android:text="📊 答题明细（按题型）"/>
+                    <LinearLayout
+                        android:id="@+id/ll_stats_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== AI 考试评价卡片 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🤖 AI 考试评价"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_medium"
+                        android:textColor="?attr/ecoPrimary"/>
+
+                    <TextView
+                        android:id="@+id/btn_ai_eval"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="点击获取 AI 分析（优点 / 不足 / 改进建议）"
+                        android:textColor="?attr/ecoPrimary"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_normal"
+                        android:padding="8dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/ll_ai_eval_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone">
+
+                        <!-- 亮点 -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✨ 亮点"
+                            android:textStyle="bold"
+                            android:textColor="@color/success"
+                            android:textSize="@dimen/text_size_normal"
+                            android:layout_marginTop="4dp"/>
+                        <TextView
+                            android:id="@+id/tv_ai_strength"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="?attr/ecoTextPrimary"
+                            android:textSize="@dimen/text_size_normal"
+                            android:lineSpacingExtra="3dp"
+                            android:background="@drawable/exam_stat_cell_bg"
+                            android:padding="10dp"/>
+
+                        <!-- 不足 -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="⚠️ 薄弱点"
+                            android:textStyle="bold"
+                            android:textColor="@color/error"
+                            android:textSize="@dimen/text_size_normal"/>
+                        <TextView
+                            android:id="@+id/tv_ai_weakness"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="?attr/ecoTextPrimary"
+                            android:textSize="@dimen/text_size_normal"
+                            android:lineSpacingExtra="3dp"
+                            android:background="@drawable/exam_stat_cell_bg"
+                            android:padding="10dp"/>
+
+                        <!-- 改进建议 -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="💡 改进建议"
+                            android:textStyle="bold"
+                            android:textColor="?attr/ecoPrimary"
+                            android:textSize="@dimen/text_size_normal"/>
+                        <TextView
+                            android:id="@+id/tv_ai_suggestion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="?attr/ecoTextPrimary"
+                            android:textSize="@dimen/text_size_normal"
+                            android:lineSpacingExtra="3dp"
+                            android:background="@drawable/exam_stat_cell_bg"
+                            android:padding="10dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 考试排行榜（局域网考试，发卷人发布后显示） ========== -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_rank"
+                style="@style/CardView.Custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFF8E1"
+                app:strokeColor="#FFFFC107"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏆"
+                        android:textSize="32sp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="考试排行榜已发布"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_medium"
+                            android:textColor="#8A6D3B"/>
+
+                        <TextView
+                            android:id="@+id/tv_rank_summary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="点击查看本场考试成绩排名"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="#A1887F"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="查看 ›"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_normal"
+                        android:textColor="?attr/ecoPrimary"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 按钮区 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_review"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:text="开始阅卷"
+                    android:textSize="@dimen/text_size_medium"
+                    style="@style/Button.Primary"
+                    app:cornerRadius="@dimen/corner_radius_large"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_retake"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:text="再考一次"
+                    android:textSize="@dimen/text_size_normal"
+                    style="@style/Button.Secondary"
+                    app:cornerRadius="@dimen/corner_radius_large"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_view_analysis"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:text="查看试卷"
+                    android:textSize="@dimen/text_size_normal"
+                    style="@style/Button.Secondary"
+                    app:cornerRadius="@dimen/corner_radius_large"/>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_go_home"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="返回首页"
+                android:textSize="@dimen/text_size_normal"
+                style="@style/Button.Text"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?attr/ecoCardBg"
+    app:cardCornerRadius="@dimen/corner_radius_large"
+    app:cardElevation="2dp"
+    android:layout_marginBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/card_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_exam_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="考试名称"
+                android:textSize="@dimen/text_size_normal"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoTextPrimary"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/tv_exam_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未开始"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoOnPrimary"
+                android:background="@drawable/bg_status_badge"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_exam_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="共 0 题 · 满分 0 分 · 0 分钟"
+            android:textSize="12sp"
+            android:textColor="?attr/ecoTextSecondary"/>
+
+        <!-- 班主任·进行中：快捷操作（在考人数 / 已交卷人员 / 结束考试） -->
+        <LinearLayout
+            android:id="@+id/ll_exam_actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/btn_exam_takers"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="在考人数"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FF2B6CB0"
+                android:background="@drawable/bg_btn_exam_action"
+                android:layout_marginEnd="6dp"/>
+
+            <TextView
+                android:id="@+id/btn_exam_submitted"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="已交卷人员"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FF2B6CB0"
+                android:background="@drawable/bg_btn_exam_action"
+                android:layout_marginEnd="6dp"/>
+
+            <TextView
+                android:id="@+id/btn_exam_end"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="结束考试"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFE5484D"
+                android:background="@drawable/bg_btn_exam_end"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

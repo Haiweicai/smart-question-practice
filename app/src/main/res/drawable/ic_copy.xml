@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 班级码行尾的复制图标（线性，颜色跟随次文字色） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="16dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:strokeColor="?attr/ecoTextSecondary"
+        android:strokeWidth="1.8"
+        android:pathData="M9,9 L9,9 M9,9 H19 V19 H9 Z"/>
+    <path
+        android:strokeColor="?attr/ecoTextSecondary"
+        android:strokeWidth="1.8"
+        android:pathData="M15,9 V5 C15,4.45 14.55,4 14,4 H5 C4.45,4 4,4.45 4,5 V14 C4,14.55 4.45,15 5,15 H9"/>
+</vector>

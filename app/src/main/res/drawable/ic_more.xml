@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 由 image/more.svg 手工转换的矢量图：右上角"更多"三个点（颜色跟随主题次文字色） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="1024"
+    android:viewportHeight="1024">
+    <path
+        android:fillColor="?attr/ecoTextSecondary"
+        android:pathData="M153.6 537.6m-89.6 0a89.6 89.6 0 1 0 179.2 0 89.6 89.6 0 1 0-179.2 0Z"/>
+    <path
+        android:fillColor="?attr/ecoTextSecondary"
+        android:pathData="M512 537.6m-89.6 0a89.6 89.6 0 1 0 179.2 0 89.6 89.6 0 1 0-179.2 0Z"/>
+    <path
+        android:fillColor="?attr/ecoTextSecondary"
+        android:pathData="M870.4 537.6m-89.6 0a89.6 89.6 0 1 0 179.2 0 89.6 89.6 0 1 0-179.2 0Z"/>
+</vector>

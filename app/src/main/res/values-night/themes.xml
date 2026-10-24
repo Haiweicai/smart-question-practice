@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- 夜间模式主题：必须完整定义所有 eco 属性，否则 AppCompat 解析 ?attr/ecoXxx 会崩溃 -->
+    <style name="Base.Theme.StudyTest" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Material 属性映射到 eco 主题属性 -->
+        <item name="colorPrimary">?attr/ecoPrimary</item>
+        <item name="colorPrimaryDark">?attr/ecoPrimaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorOnPrimary">?attr/ecoOnPrimary</item>
+        <item name="colorOnSecondary">?attr/ecoOnPrimary</item>
+        <item name="colorOnBackground">?attr/ecoTextPrimary</item>
+        <item name="colorSurface">?attr/ecoSurface</item>
+        <item name="colorOnSurface">?attr/ecoTextPrimary</item>
+        <item name="android:colorBackground">?attr/ecoBackground</item>
+        <!-- eco 默认色值（= 紫蓝默认主题，与 values/themes.xml 保持一致） -->
+        <item name="ecoSurface">#FFFFFFFF</item>
+        <item name="ecoOnPrimary">#FFFFFFFF</item>
+        <item name="ecoBackground">#FFFAFAFA</item>
+        <item name="ecoCardBg">#FFFFFFFF</item>
+        <item name="ecoPrimaryLightBg">#FFE3F2FD</item>
+        <item name="ecoEmptyBg">#FFE3F2FD</item>
+        <item name="ecoPrimary">#FF1976D2</item>
+        <item name="ecoPrimaryLight">#FF42A5F5</item>
+        <item name="ecoPrimaryDark">#FF1565C0</item>
+        <item name="ecoTextPrimary">#FF212121</item>
+        <item name="ecoTextSecondary">#FF757575</item>
+        <item name="ecoTextHint">#FFBDBDBD</item>
+        <item name="ecoGradientStart">#FF667EEA</item>
+        <item name="ecoGradientEnd">#FF764BA2</item>
+        <item name="ecoBottomNavBg">#FFFFFFFF</item>
+        <item name="ecoBottomNavIcon">#FF757575</item>
+    </style>
+</resources>

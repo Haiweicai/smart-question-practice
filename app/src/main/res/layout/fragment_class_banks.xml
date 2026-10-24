@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 班级题库页：顶栏 + 题库列表（布局阶段，数据待接入） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF2F4F8">
+
+    <!-- 顶栏 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFFFF">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="6dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_back_bank"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="返回"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="班级题库"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FF222222"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_gravity="bottom"
+            android:background="#FFE5E7EB"/>
+
+    </FrameLayout>
+
+    <!-- 题库列表 -->
+    <LinearLayout
+        android:id="@+id/ll_bank_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:background="#FFF2F4F8"/>
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 学情统计条目：卡片(头像 + 姓名 + 标签 + 右侧今日学习时长) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_class_card"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    android:paddingStart="14dp"
+    android:paddingEnd="14dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp">
+
+    <FrameLayout
+        android:layout_width="46dp"
+        android:layout_height="46dp">
+
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:src="@drawable/bg_avatar_gradient"
+            android:contentDescription="成员头像"/>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_person"
+            app:tint="#FFFFFFFF"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_member_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FF1F2430"/>
+
+    <TextView
+        android:id="@+id/tv_creator_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_creator_badge"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:text="创建者"
+        android:textSize="11sp"
+        android:textColor="#FFFFFFFF"
+        android:visibility="gone"/>
+
+    <!-- 今日学习时长 -->
+    <TextView
+        android:id="@+id/tv_today_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:layout_marginStart="10dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#FF2B6CB0"/>
+
+</LinearLayout>

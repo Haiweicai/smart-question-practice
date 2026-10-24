@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_bg"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_size_xlarge"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_settings"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="⚙"
+            android:textSize="22sp"
+            android:textColor="?attr/ecoTextSecondary"
+            android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_close"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="×"
+            android:textSize="28sp"
+            android:textColor="?attr/ecoTextSecondary"
+            android:gravity="center"
+            android:padding="4dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="12dp"
+            android:background="@drawable/card_bg"
+            android:layout_marginRight="8dp">
+
+            <TextView
+                android:id="@+id/tv_answered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已答"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="12dp"
+            android:background="@drawable/card_bg"
+            android:layout_marginRight="8dp">
+
+            <TextView
+                android:id="@+id/tv_unanswered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoTextPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未答"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="12dp"
+            android:background="@drawable/card_bg">
+
+            <TextView
+                android:id="@+id/tv_marked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="标记"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="?attr/ecoBackground"/>
+
+    <GridView
+        android:id="@+id/gv_answer_card"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:numColumns="5"
+        android:horizontalSpacing="12dp"
+        android:verticalSpacing="12dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="?attr/ecoBackground"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tv_submit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="提交答题结果"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"
+            style="@style/Button.Primary"/>
+
+    </LinearLayout>
+
+</LinearLayout>

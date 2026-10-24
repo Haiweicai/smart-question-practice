@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/ecoBackground">
+
+    <!-- 顶部栏：交卷 | 倒计时 | 切屏次数 -->
+    <LinearLayout
+        android:id="@+id/exam_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="@drawable/top_bar_bg"
+        android:elevation="2dp">
+
+        <TextView
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="交卷"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"
+            android:textColor="@color/error"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="16dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--:--"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoTextPrimary"/>
+
+            <TextView
+                android:id="@+id/tv_progress_pos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="第 1 题 / 共 0 题"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="?attr/ecoTextSecondary"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_switch_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切屏 0/0"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="?attr/ecoTextSecondary"/>
+    </LinearLayout>
+
+    <!-- 题目区 -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_questions"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- 底部：上一题 | 下一题 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="?attr/ecoCardBg"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/btn_prev"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="‹ 上一题"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="?attr/ecoPrimary"/>
+
+        <TextView
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="下一题 ›"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="?attr/ecoPrimary"/>
+    </LinearLayout>
+</LinearLayout>

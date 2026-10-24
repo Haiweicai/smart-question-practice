@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 模拟考试模块专属样式（独立文件，避免影响现有功能） -->
+<resources>
+
+    <!-- 卡片内垂直容器 -->
+    <style name="CardInnerVertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/card_padding_small</item>
+    </style>
+
+    <!-- 卡片内小节标题 -->
+    <style name="ExamSectionTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- 题型数量行 -->
+    <style name="ExamCountRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <!-- 行左侧标签容器 -->
+    <style name="ExamCountLabelBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- 题型名称 -->
+    <style name="ExamCountName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- 可用数量提示 -->
+    <style name="ExamCountAvail">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@color/text_hint</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
+
+    <!-- 数量步进按钮 － ＋ -->
+    <style name="ExamStepBtn">
+        <item name="android:layout_width">38dp</item>
+        <item name="android:layout_height">34dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:background">@drawable/exam_step_btn_bg</item>
+    </style>
+
+    <!-- 数量输入框 / 显示框 -->
+    <style name="ExamCountInput">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">34dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginEnd">2dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:background">@drawable/exam_input_bg</item>
+    </style>
+
+    <!-- 提示说明文字 -->
+    <style name="ExamHintText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- 信息字段行 -->
+    <style name="ExamFieldRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <!-- 字段名称 -->
+    <style name="ExamFieldName">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- 字段值 -->
+    <style name="ExamFieldValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- ================ 组卷配置界面（ExamConfig）专属样式 ================ -->
+
+    <!-- 摘要卡内题型比例图例（单选●/多选☐/判断✓/填空＿/简答✎ 胶囊） -->
+    <style name="ConfigLegend">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:alpha">0.92</item>
+        <item name="android:layout_marginEnd">6dp</item>
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:background">@drawable/filter_tag_bg</item>
+    </style>
+</resources>

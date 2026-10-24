@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 班级图标左上角"我创建/他人"角标背景（半透明深色圆角） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#CC333333"/>
+    <corners
+        android:topLeftRadius="6dp"
+        android:topRightRadius="6dp"
+        android:bottomRightRadius="6dp"/>
+</shape>

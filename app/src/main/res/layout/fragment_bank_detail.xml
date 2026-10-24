@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/ecoBackground"
+    android:fitsSystemWindows="true">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/ecoBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding"
+        android:paddingTop="@dimen/layout_padding"
+        android:paddingBottom="@dimen/layout_padding"
+        android:background="?attr/ecoSurface"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="题库详情"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"
+            android:layout_marginEnd="12dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_practice_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardBackgroundColor="?attr/ecoPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="0dp"
+            app:rippleColor="@color/white_transparent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✎"
+                    android:textSize="14sp"
+                    android:textColor="?attr/ecoOnPrimary"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/btn_practice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开始刷题"
+                    android:textSize="14sp"
+                    android:textColor="?attr/ecoOnPrimary"
+                    android:textStyle="bold"
+                    android:layout_marginStart="4dp"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:focusable="false"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 模拟考试入口（与开始刷题等宽平分空间） -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_exam_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            app:cardBackgroundColor="@color/accent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="0dp"
+            app:rippleColor="@color/white_transparent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_exam"
+                    app:tint="?attr/ecoOnPrimary"
+                    android:contentDescription="@null"/>
+
+                <TextView
+                    android:id="@+id/btn_exam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="模拟考试"
+                    android:textSize="14sp"
+                    android:textColor="?attr/ecoOnPrimary"
+                    android:textStyle="bold"
+                    android:layout_marginStart="4dp"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:focusable="false"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_bank_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="?attr/ecoCardBg"
+        app:cardCornerRadius="@dimen/corner_radius_large"
+        app:cardElevation="@dimen/elevation"
+        android:layout_marginStart="@dimen/layout_margin"
+        android:layout_marginEnd="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginBottom="@dimen/layout_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_bank_icon"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    app:cardBackgroundColor="?attr/ecoPrimaryLight"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_bank_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="题"
+                            android:textSize="@dimen/text_size_large"
+                            android:textColor="?attr/ecoPrimary"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_bank_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_xlarge"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:textColor="?attr/ecoTextPrimary"/>
+
+                    <TextView
+                        android:id="@+id/tv_question_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_normal"
+                        android:textColor="?attr/ecoTextSecondary"
+                        android:layout_marginTop="8dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/ll_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:padding="@dimen/card_padding"
+                    android:background="?attr/ecoBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="备注"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="?attr/ecoTextHint"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_normal"
+                        android:textColor="?attr/ecoTextPrimary"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:id="@+id/ll_filter_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/layout_padding"
+            android:paddingEnd="@dimen/layout_padding"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:background="?attr/ecoBackground">
+
+            <TextView
+                android:id="@+id/tv_preview_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="题目预览"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoTextPrimary"/>
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/tv_filter_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoOnPrimary"
+                android:background="@drawable/filter_tag_selected_bg"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_marginStart="4dp"/>
+
+            <TextView
+                android:id="@+id/tv_filter_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="成功:0"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoTextSecondary"
+                android:background="@drawable/filter_tag_bg"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_marginStart="4dp"/>
+
+            <TextView
+                android:id="@+id/tv_filter_warning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="警告:0"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoTextSecondary"
+                android:background="@drawable/filter_tag_bg"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_marginStart="4dp"/>
+
+            <TextView
+                android:id="@+id/tv_filter_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="异常:0"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoTextSecondary"
+                android:background="@drawable/filter_tag_bg"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_marginStart="4dp"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_question_preview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"/>
+
+</LinearLayout>
+
+    <!-- 悬浮跳转按钮：默认隐藏，卡片收起后显示 -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_jump_fab"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="80dp"
+        app:cardBackgroundColor="?attr/ecoPrimary"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="6dp"
+        android:visibility="gone"
+        app:rippleColor="@color/white_transparent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⇤"
+                android:textSize="22sp"
+                android:textColor="?attr/ecoOnPrimary"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="跳转"
+                android:textSize="10sp"
+                android:textColor="?attr/ecoOnPrimary"
+                android:layout_marginTop="-2dp"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

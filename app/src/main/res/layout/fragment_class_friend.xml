@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 班级页（"我的班级"）：顶栏返回+标题，中部班级列表，底部创建/加入双按钮 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/ecoBackground">
+
+    <!-- ===== 顶栏：返回按钮（左）+ "我的班级"（居中），同一水平线 ===== -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="?attr/ecoSurface">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="6dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_back_bank"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="返回"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="我的班级"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/divider_class_list"/>
+
+    </FrameLayout>
+
+    <!-- ===== 班级列表 ===== -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_class_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:showDividers="middle"
+                android:divider="@drawable/divider_class_list"/>
+
+            <TextView
+                android:id="@+id/tv_class_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="没有更多了"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoTextHint"
+                android:gravity="center"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- ===== 底部操作栏：创建班级 / 加入班级 ===== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="12dp"
+        android:background="?attr/ecoSurface">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_create_class"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF3A3A3A"
+            android:text="创建班级"
+            android:textColor="?attr/ecoOnPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_create_class"
+            app:iconSize="18dp"
+            app:iconTint="?attr/ecoOnPrimary"
+            app:iconGravity="textStart"
+            app:cornerRadius="10dp"/>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_join_class"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:backgroundTint="?attr/ecoPrimary"
+            android:text="加入班级"
+            android:textColor="?attr/ecoOnPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_join_class"
+            app:iconSize="18dp"
+            app:iconTint="?attr/ecoOnPrimary"
+            app:iconGravity="textStart"
+            app:cornerRadius="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

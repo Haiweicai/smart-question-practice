@@ -1,0 +1,20 @@
+{
+  "name": "smart-question-practice-server",
+  "version": "1.0.0-skeleton",
+  "private": true,
+  "description": "智能刷题 - 服务端骨架（只有路由表与表结构，业务逻辑待实现）",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "init-db": "node src/db.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

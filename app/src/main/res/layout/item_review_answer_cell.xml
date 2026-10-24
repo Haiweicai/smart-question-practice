@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 查看试卷答题卡格子：52dp 正方形，粗体白字 -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="52dp"
+    android:layout_height="52dp"
+    android:gravity="center"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    android:textColor="?attr/ecoOnPrimary"
+    android:background="@drawable/review_cell_unanswered"/>

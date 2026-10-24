@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?attr/ecoSurface"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/tv_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_avatar_circle"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoPrimary"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="?attr/ecoTextPrimary"/>
+
+            <TextView
+                android:id="@+id/tv_device"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="?attr/ecoTextHint"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_reject"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="拒绝"
+            android:textSize="13sp"
+            style="@style/Widget.Material3.Button.TextButton"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_accept"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="同意"
+            android:textSize="13sp"
+            style="@style/Button.Secondary"
+            app:cornerRadius="20dp"/>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

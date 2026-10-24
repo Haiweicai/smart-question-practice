@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_bg">
+
+    <!-- 标题行 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="12dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="答题卡"
+            android:textSize="@dimen/text_size_xlarge"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <TextView
+            android:id="@+id/btn_close"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="×"
+            android:textSize="26sp"
+            android:textColor="?attr/ecoTextSecondary"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- 当前位置行（始终可见，不受筛选影响） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:id="@+id/tv_current_pos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前：第 1 题 / 共 0 题"
+            android:textSize="@dimen/text_size_normal"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_current_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="答对"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoOnPrimary"
+            android:background="@drawable/review_cell_correct"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"/>
+    </LinearLayout>
+
+    <!-- 统计行 + 图例（紧凑并列） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="18dp"
+        android:paddingRight="10dp"
+        android:paddingTop="6dp">
+
+        <TextView
+            android:id="@+id/tv_review_stat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="对 0 · 错 0 · 未答 0 · 待阅 0 · 已阅 0"
+            android:textSize="12sp"
+            android:textColor="?attr/ecoTextSecondary"/>
+
+        <!-- 5 个紧凑图例色块 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <View android:layout_width="10dp" android:layout_height="10dp" android:layout_marginLeft="4dp"
+                android:background="@drawable/review_cell_correct"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp" android:text="对" android:textSize="10sp"
+                android:textColor="?attr/ecoTextSecondary"/>
+
+            <View android:layout_width="10dp" android:layout_height="10dp" android:layout_marginLeft="6dp"
+                android:background="@drawable/review_cell_wrong"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp" android:text="错" android:textSize="10sp"
+                android:textColor="?attr/ecoTextSecondary"/>
+
+            <View android:layout_width="10dp" android:layout_height="10dp" android:layout_marginLeft="6dp"
+                android:background="@drawable/review_cell_unanswered"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp" android:text="未答" android:textSize="10sp"
+                android:textColor="?attr/ecoTextSecondary"/>
+
+            <View android:layout_width="10dp" android:layout_height="10dp" android:layout_marginLeft="6dp"
+                android:background="@drawable/review_cell_pending"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp" android:text="待阅" android:textSize="10sp"
+                android:textColor="?attr/ecoTextSecondary"/>
+
+            <View android:layout_width="10dp" android:layout_height="10dp" android:layout_marginLeft="6dp"
+                android:background="@drawable/review_cell_graded"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp" android:text="已阅" android:textSize="10sp"
+                android:textColor="?attr/ecoTextSecondary"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/divider"/>
+
+    <!-- 筛选：全部 / 只看错题 / 只看对题 / 只看未答 -->
+    <RadioGroup
+        android:id="@+id/rg_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="2dp">
+
+        <RadioButton
+            android:id="@+id/rb_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="全部"
+            android:textSize="12sp"/>
+
+        <RadioButton
+            android:id="@+id/rb_wrong"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="只看错题"
+            android:textSize="12sp"/>
+
+        <RadioButton
+            android:id="@+id/rb_correct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="只看对题"
+            android:textSize="12sp"/>
+
+        <RadioButton
+            android:id="@+id/rb_unanswered"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="只看未答"
+            android:textSize="12sp"/>
+    </RadioGroup>
+
+    <!-- 当前题被筛选掉时的兜底提示（点击=切回全部并定位本题） -->
+    <TextView
+        android:id="@+id/tv_filter_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/yellow_light"
+        android:padding="8dp"
+        android:text="当前题目不在筛选结果中，点此显示全部并定位"
+        android:textSize="12sp"
+        android:textColor="@color/gray_dark"
+        android:visibility="gone"/>
+
+    <!-- RecyclerView 网格区：固定 5 行高度，配合 PagerSnapHelper 实现整页翻（5 列 × 5 行 = 25 题/页） -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_marginTop="4dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_review_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="6dp"
+            android:clipToPadding="false"
+            android:scrollbars="none"/>
+
+        <TextView
+            android:id="@+id/tv_empty_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="该筛选下没有题目"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="?attr/ecoTextHint"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <!-- 页码指示器（居中，上/下页按钮已移除，靠手势滑动翻页） -->
+    <TextView
+        android:id="@+id/tv_page_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="6dp"
+        android:paddingBottom="4dp"
+        android:text="第 1 / 1 页"
+        android:textSize="@dimen/text_size_normal"
+        android:textStyle="bold"
+        android:textColor="?attr/ecoTextPrimary"/>
+
+    <!-- 底部关闭按钮（短款居中，不铺满宽度） -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_review_card_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="12dp"
+        android:text="关闭"
+        android:textSize="@dimen/text_size_medium"
+        android:textStyle="bold"
+        android:minWidth="160dp"
+        style="@style/Button.Primary"/>
+</LinearLayout>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/ecoBackground">
+
+    <!-- 顶部标题栏（蓝渐变，与考试模块一致） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        android:background="@drawable/top_bar_bg">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="‹ 返回"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoPrimary"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📡"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="局域网考试"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_scan_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描中…"
+            android:textSize="12sp"
+            android:textColor="?attr/ecoOnPrimary"
+            android:background="@drawable/badge_bg_primary"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"/>
+    </LinearLayout>
+
+    <!-- 考试信息条（来自组卷页配置） -->
+    <TextView
+        android:id="@+id/tv_exam_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:textSize="13sp"
+        android:textColor="?attr/ecoTextSecondary"
+        android:background="?attr/ecoSurface"/>
+
+    <!-- 用户列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_users"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="12dp"
+        android:scrollbars="vertical"/>
+
+    <!-- 空状态 -->
+    <LinearLayout
+        android:id="@+id/tv_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📡"
+            android:textSize="64sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="暂无在线用户"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="请确保其他设备与你在同一局域网，并已打开本应用"
+            android:textSize="13sp"
+            android:textColor="?attr/ecoTextSecondary"
+            android:gravity="center"
+            android:paddingHorizontal="32dp"/>
+    </LinearLayout>
+
+    <!-- 发卷人控制栏（有考生接受邀请后显示）：批阅进度 + 去批阅 + 发布排行榜 + 结束考试 -->
+    <LinearLayout
+        android:id="@+id/layout_host_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"
+        android:padding="12dp"
+        android:background="@drawable/card_bg">
+
+        <TextView
+            android:id="@+id/tv_host_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"
+            android:text="考试进行中：已接受 0 人"/>
+
+        <TextView
+            android:id="@+id/tv_host_grading_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:textColor="@color/error"
+            android:text="有考生答卷待批阅，批阅入口在「考试记录」"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_go_grading"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:text="去批阅"
+                android:textSize="13sp"
+                android:textColor="@color/error"
+                app:strokeColor="@color/error"
+                app:cornerRadius="12dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_publish_rank"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="发布排行榜"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoPrimary"
+                app:strokeColor="?attr/ecoPrimary"
+                app:cornerRadius="12dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_end_exam"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="结束考试"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoOnPrimary"
+                app:backgroundTint="@color/error"
+                app:cornerRadius="12dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 底部操作栏：全选 + 汇总 + 发起邀请 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:background="?attr/ecoSurface"
+        android:elevation="6dp">
+
+        <CheckBox
+            android:id="@+id/cb_select_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全选"
+            android:textSize="14sp"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_user_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="在线 0 人 · 历史 0 人"
+            android:textSize="13sp"
+            android:textColor="?attr/ecoTextSecondary"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_invite"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:enabled="false"
+            android:alpha="0.5"
+            android:text="发起邀请"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoOnPrimary"
+            app:backgroundTint="?attr/ecoPrimary"
+            app:cornerRadius="14dp"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 由 image/bank.svg 手工转换的矢量图：返回箭头（填充色跟随 ?attr/ecoTextPrimary，护眼/夜间模式自动切换） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="1024"
+    android:viewportHeight="1024">
+    <path
+        android:fillColor="?attr/ecoTextPrimary"
+        android:pathData="M184.684 504.718a36.336 36.336 0 0 1 12.38-22.573L449.74 229.467a36.409 36.409 0 0 1 51.336 51.337L308.474 473.407h494.797a36.409 36.409 0 0 1 0 72.817H308.474l192.603 192.603a36.409 36.409 0 1 1-51.336 51.701L194.879 535.666a36.372 36.372 0 0 1-10.195-30.948z"/>
+</vector>

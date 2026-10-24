@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="导入预览"
+            android:textSize="@dimen/text_size_xlarge"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_file_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="?attr/ecoTextSecondary"
+            android:layout_marginBottom="12dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_divider"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="题库列表"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/ll_bank_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+        <TextView
+            android:id="@+id/tv_conflict_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="存在重名题库，请选择处理方式"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/error"
+            android:visibility="gone"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"/>
+
+        <RadioGroup
+            android:id="@+id/rg_conflict"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/rb_skip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="跳过重名题库"
+                android:textSize="@dimen/text_size_normal"
+                android:padding="8dp"
+                android:textColor="?attr/ecoTextPrimary"/>
+
+            <RadioButton
+                android:id="@+id/rb_overwrite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="覆盖现有题库"
+                android:textSize="@dimen/text_size_normal"
+                android:padding="8dp"
+                android:textColor="?attr/ecoTextPrimary"/>
+
+            <RadioButton
+                android:id="@+id/rb_rename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="重命名导入（自动添加后缀）"
+                android:textSize="@dimen/text_size_normal"
+                android:padding="8dp"
+                android:checked="true"
+                android:textColor="?attr/ecoTextPrimary"/>
+        </RadioGroup>
+
+    </LinearLayout>
+</ScrollView>

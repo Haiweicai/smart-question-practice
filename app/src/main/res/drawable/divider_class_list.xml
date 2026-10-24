@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 班级列表分隔线（颜色跟随主题提示色，各主题下均为低对比灰） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="?attr/ecoTextHint"/>
+    <size android:height="1dp"/>
+</shape>

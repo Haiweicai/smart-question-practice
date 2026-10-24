@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.smart_question_practice.ui.LoginFragment"
+        android:label="登录">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"/>
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.smart_question_practice.ui.RegisterFragment"
+        android:label="注册"/>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.smart_question_practice.ui.HomeFragment"
+        android:label="题库">
+        <action
+            android:id="@+id/action_homeFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment"/>
+        <action
+            android:id="@+id/action_homeFragment_to_bankDetailFragment"
+            app:destination="@id/bankDetailFragment"/>
+        <action
+            android:id="@+id/action_homeFragment_to_practiceFragment"
+            app:destination="@id/practiceFragment"/>
+        <action
+            android:id="@+id/action_homeFragment_to_inboxFragment"
+            app:destination="@id/inboxFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/wrongFragment"
+        android:name="com.example.smart_question_practice.ui.WrongFragment"
+        android:label="错题">
+        <action
+            android:id="@+id/action_wrongFragment_to_practiceFragment"
+            app:destination="@id/practiceFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.smart_question_practice.ui.FavoriteFragment"
+        android:label="收藏">
+        <action
+            android:id="@+id/action_favoriteFragment_to_practiceFragment"
+            app:destination="@id/practiceFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.example.smart_question_practice.ui.StatisticsFragment"
+        android:label="统计"/>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.smart_question_practice.ui.SettingsFragment"
+        android:label="设置">
+        <action
+            android:id="@+id/action_settingsFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_recycleBinFragment"
+            app:destination="@id/recycleBinFragment"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_examHistoryFragment"
+            app:destination="@id/examHistoryFragment"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_friendFragment"
+            app:destination="@id/friendFragment"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_classFriendFragment"
+            app:destination="@id/classFriendFragment"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_inboxFragment"
+            app:destination="@id/inboxFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/friendFragment"
+        android:name="com.example.smart_question_practice.ui.FriendFragment"
+        android:label="好友"/>
+
+    <fragment
+        android:id="@+id/classFriendFragment"
+        android:name="com.example.smart_question_practice.ui.ClassFriendFragment"
+        android:label="班级">
+        <action
+            android:id="@+id/action_classFriendFragment_to_classExamsFragment"
+            app:destination="@id/classExamsFragment"/>
+        <action
+            android:id="@+id/action_classFriendFragment_to_createClassFragment"
+            app:destination="@id/createClassFragment"/>
+        <action
+            android:id="@+id/action_classFriendFragment_to_joinClassFragment"
+            app:destination="@id/joinClassFragment"/>
+        <action
+            android:id="@+id/action_classFriendFragment_to_classDetailFragment"
+            app:destination="@id/classDetailFragment"/>
+    </fragment>
+
+    <!-- 班级详情（布局阶段，各功能入口待接入） -->
+    <fragment
+        android:id="@+id/classDetailFragment"
+        android:name="com.example.smart_question_practice.ui.ClassDetailFragment"
+        android:label="班级详情">
+        <action
+            android:id="@+id/action_classDetailFragment_to_classBanksFragment"
+            app:destination="@id/classBanksFragment"/>
+        <action
+            android:id="@+id/action_classDetailFragment_to_classMembersFragment"
+            app:destination="@id/classMembersFragment"/>
+        <action
+            android:id="@+id/action_classDetailFragment_to_classStudyStatFragment"
+            app:destination="@id/classStudyStatFragment"/>
+        <action
+            android:id="@+id/action_classDetailFragment_to_classExamsFragment"
+            app:destination="@id/classExamsFragment"/>
+    </fragment>
+
+    <!-- 班级题库：列表/拉取练习，班主任可移除 -->
+    <fragment
+        android:id="@+id/classBanksFragment"
+        android:name="com.example.smart_question_practice.ui.ClassBanksFragment"
+        android:label="班级题库">
+        <action
+            android:id="@+id/action_classBanksFragment_to_practiceFragment"
+            app:destination="@id/practiceFragment"/>
+    </fragment>
+
+    <!-- 班级成员（布局阶段，数据待接入） -->
+    <fragment
+        android:id="@+id/classMembersFragment"
+        android:name="com.example.smart_question_practice.ui.ClassMembersFragment"
+        android:label="班级成员"/>
+
+    <!-- 学情统计（布局阶段，数据待接入） -->
+    <fragment
+        android:id="@+id/classStudyStatFragment"
+        android:name="com.example.smart_question_practice.ui.ClassStudyStatFragment"
+        android:label="学情统计"/>
+
+    <!-- 创建班级（布局阶段，核心逻辑待接入） -->
+    <fragment
+        android:id="@+id/createClassFragment"
+        android:name="com.example.smart_question_practice.ui.CreateClassFragment"
+        android:label="创建班级"/>
+
+    <!-- 加入班级（布局阶段，核心逻辑待接入） -->
+    <fragment
+        android:id="@+id/joinClassFragment"
+        android:name="com.example.smart_question_practice.ui.JoinClassFragment"
+        android:label="加入班级"/>
+
+    <!-- ========== 班级考试模块 ========== -->
+    <fragment
+        android:id="@+id/classExamsFragment"
+        android:name="com.example.smart_question_practice.ui.classexam.ClassExamsFragment"
+        android:label="班级考试">
+        <action
+            android:id="@+id/action_classExamsFragment_to_classExamFragment"
+            app:destination="@id/classExamFragment"/>
+        <action
+            android:id="@+id/action_classExamsFragment_to_classRankingFragment"
+            app:destination="@id/classRankingFragment"/>
+        <action
+            android:id="@+id/action_classExamsFragment_to_examMonitorFragment"
+            app:destination="@id/examMonitorFragment"/>
+        <action
+            android:id="@+id/action_classExamsFragment_to_examGradingFragment"
+            app:destination="@id/examGradingFragment"/>
+        <action
+            android:id="@+id/action_classExamsFragment_to_examConfigFragment"
+            app:destination="@id/examConfigFragment"/>
+        <action
+            android:id="@+id/action_classExamsFragment_to_classExamSummaryFragment"
+            app:destination="@id/classExamSummaryFragment"/>
+        <action
+            android:id="@+id/action_classExamsFragment_to_classExamResultFragment"
+            app:destination="@id/classExamResultFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/classExamFragment"
+        android:name="com.example.smart_question_practice.ui.classexam.ClassExamFragment"
+        android:label="作答">
+        <action
+            android:id="@+id/action_classExamFragment_to_classExamResultFragment"
+            app:destination="@id/classExamResultFragment"
+            app:popUpTo="@id/classExamFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/classExamResultFragment"
+        android:name="com.example.smart_question_practice.ui.classexam.ClassExamResultFragment"
+        android:label="考试成绩">
+        <action
+            android:id="@+id/action_classExamResultFragment_to_classExamSummaryFragment"
+            app:destination="@id/classExamSummaryFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/classRankingFragment"
+        android:name="com.example.smart_question_practice.ui.classexam.ClassRankingFragment"
+        android:label="成绩排名"/>
+
+    <fragment
+        android:id="@+id/examMonitorFragment"
+        android:name="com.example.smart_question_practice.ui.classexam.ExamMonitorFragment"
+        android:label="考试监控"/>
+
+    <fragment
+        android:id="@+id/examGradingFragment"
+        android:name="com.example.smart_question_practice.ui.classexam.ExamGradingFragment"
+        android:label="批阅主观题"/>
+
+    <fragment
+        android:id="@+id/classExamSummaryFragment"
+        android:name="com.example.smart_question_practice.ui.classexam.ClassExamSummaryFragment"
+        android:label="考试详情"/>
+
+    <fragment
+        android:id="@+id/inboxFragment"
+        android:name="com.example.smart_question_practice.ui.InboxFragment"
+        android:label="收件箱"/>
+
+    <fragment
+        android:id="@+id/recycleBinFragment"
+        android:name="com.example.smart_question_practice.ui.RecycleBinFragment"
+        android:label="回收站"/>
+
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.example.smart_question_practice.ui.UploadFragment"
+        android:label="导入"/>
+
+    <fragment
+        android:id="@+id/bankDetailFragment"
+        android:name="com.example.smart_question_practice.ui.BankDetailFragment"
+        android:label="题库详情">
+        <action
+            android:id="@+id/action_bankDetailFragment_to_practiceFragment"
+            app:destination="@id/practiceFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/practiceFragment"
+        android:name="com.example.smart_question_practice.ui.PracticeFragment"
+        android:label="刷题">
+        <action
+            android:id="@+id/action_practiceFragment_to_practiceSettingsFragment"
+            app:destination="@id/practiceSettingsFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/practiceSettingsFragment"
+        android:name="com.example.smart_question_practice.ui.PracticeSettingsFragment"
+        android:label="答题设置"/>
+
+    <!-- ========== 模拟考试模块 ========== -->
+
+    <!-- 模式二入口：多选题库 -->
+    <fragment
+        android:id="@+id/bankMultiSelectFragment"
+        android:name="com.example.smart_question_practice.ui.exam.BankMultiSelectFragment"
+        android:label="选择题库">
+        <action
+            android:id="@+id/action_bankMultiSelectFragment_to_examConfigFragment"
+            app:destination="@id/examConfigFragment"/>
+    </fragment>
+
+    <!-- 组卷配置页（两种模式共用） -->
+    <fragment
+        android:id="@+id/examConfigFragment"
+        android:name="com.example.smart_question_practice.ui.exam.ExamConfigFragment"
+        android:label="组卷配置">
+        <action
+            android:id="@+id/action_examConfigFragment_to_examFragment"
+            app:destination="@id/examFragment"
+            app:popUpTo="@id/examConfigFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_examConfigFragment_to_examHistoryFragment"
+            app:destination="@id/examHistoryFragment"/>
+        <action
+            android:id="@+id/action_examConfigFragment_to_lanExamFragment"
+            app:destination="@id/lanExamFragment"/>
+    </fragment>
+
+    <!-- 考试答题页 -->
+    <fragment
+        android:id="@+id/examFragment"
+        android:name="com.example.smart_question_practice.ui.exam.ExamFragment"
+        android:label="模拟考试">
+        <action
+            android:id="@+id/action_examFragment_to_examResultFragment"
+            app:destination="@id/examResultFragment"
+            app:popUpTo="@id/examFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_examFragment_to_examReviewFragment"
+            app:destination="@id/examReviewFragment"
+            app:popUpTo="@id/examFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <!-- 成绩单页 -->
+    <fragment
+        android:id="@+id/examResultFragment"
+        android:name="com.example.smart_question_practice.ui.exam.ExamResultFragment"
+        android:label="考试结果">
+        <action
+            android:id="@+id/action_examResultFragment_to_examReviewFragment"
+            app:destination="@id/examReviewFragment"/>
+        <action
+            android:id="@+id/action_examResultFragment_to_examFragment"
+            app:destination="@id/examFragment"
+            app:popUpTo="@id/examResultFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_examResultFragment_to_lanExamRankFragment"
+            app:destination="@id/lanExamRankFragment"/>
+    </fragment>
+
+    <!-- 主观题阅卷 / 解析查看 -->
+    <fragment
+        android:id="@+id/examReviewFragment"
+        android:name="com.example.smart_question_practice.ui.exam.ExamReviewFragment"
+        android:label="阅卷">
+        <action
+            android:id="@+id/action_examReviewFragment_to_examResultFragment"
+            app:destination="@id/examResultFragment"
+            app:popUpTo="@id/examReviewFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <!-- 考试历史记录 -->
+    <fragment
+        android:id="@+id/examHistoryFragment"
+        android:name="com.example.smart_question_practice.ui.exam.ExamHistoryFragment"
+        android:label="考试记录">
+        <action
+            android:id="@+id/action_examHistoryFragment_to_examResultFragment"
+            app:destination="@id/examResultFragment"/>
+        <action
+            android:id="@+id/action_examHistoryFragment_to_examReviewFragment"
+            app:destination="@id/examReviewFragment"/>
+    </fragment>
+
+    <!-- ========== 局域网考试模块 ========== -->
+    <fragment
+        android:id="@+id/lanExamFragment"
+        android:name="com.example.smart_question_practice.ui.lan.LanExamFragment"
+        android:label="局域网考试">
+        <action
+            android:id="@+id/action_lanExamFragment_to_examHistoryFragment"
+            app:destination="@id/examHistoryFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/lanExamRankFragment"
+        android:name="com.example.smart_question_practice.ui.lan.LanExamRankFragment"
+        android:label="考试排行榜"/>
+
+</navigation>

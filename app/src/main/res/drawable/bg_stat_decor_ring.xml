@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 学情卡片右侧装饰：半透明白色圆环 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#14FFFFFF"/>
+    <stroke android:width="10dp" android:color="#1AFFFFFF"/>
+</shape>

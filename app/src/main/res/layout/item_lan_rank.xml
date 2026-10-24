@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?attr/ecoSurface"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="2dp"
+    android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="12dp">
+
+        <!-- 排名（前三名金银铜） -->
+        <TextView
+            android:id="@+id/tv_rank_no"
+            android:layout_width="34dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextSecondary"/>
+
+        <!-- 姓名 + 状态标签 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/tv_rank_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="考生名"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoTextPrimary"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <!-- 徽标行：发起者 / 未完成阅卷 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/badge_rank_host"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发起者"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/ecoOnPrimary"
+                    android:background="@drawable/badge_bg_primary"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    android:layout_marginEnd="4dp"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/badge_rank_pending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="未完成阅卷"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/ecoOnPrimary"
+                    android:background="@drawable/badge_bg_warning"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_rank_meta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="用时 00:00 · 切屏 0 次"
+                android:textSize="12sp"
+                android:textColor="?attr/ecoTextSecondary"/>
+        </LinearLayout>
+
+        <!-- 得分 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tv_rank_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoPrimary"/>
+
+            <TextView
+                android:id="@+id/tv_rank_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="已交卷"
+                android:textSize="11sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_bg">
+
+    <!-- 标题行 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/tv_restore_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="继续刷题"
+            android:textSize="@dimen/text_size_xlarge"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <TextView
+            android:id="@+id/btn_restore_close"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="×"
+            android:textSize="26sp"
+            android:textColor="?attr/ecoTextSecondary"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- 进度信息 -->
+    <TextView
+        android:id="@+id/tv_restore_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp"
+        android:paddingTop="10dp"
+        android:lineSpacingExtra="3dp"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="?attr/ecoTextSecondary"/>
+
+    <!-- 进度条：直观展示已完成比例 -->
+    <ProgressBar
+        android:id="@+id/pb_restore_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="16dp"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="?attr/ecoPrimary"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="18dp"
+        android:background="@color/divider"/>
+
+    <!-- 按钮区：重新开始（次要） + 继续刷题（主要） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_restore_restart"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginRight="6dp"
+            android:text="重新开始"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"
+            style="@style/Button.Secondary"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_restore_continue"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="6dp"
+            android:text="继续刷题"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"
+            style="@style/Button.Primary"/>
+    </LinearLayout>
+
+</LinearLayout>

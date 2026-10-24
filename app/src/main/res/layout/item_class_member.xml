@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 班级成员条目：卡片(头像 + 姓名 + 班主任标签 + 在线状态) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_class_card"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    android:paddingStart="14dp"
+    android:paddingEnd="14dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp">
+
+    <FrameLayout
+        android:layout_width="46dp"
+        android:layout_height="46dp">
+
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:src="@drawable/bg_avatar_gradient"
+            android:contentDescription="成员头像"/>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_person"
+            app:tint="#FFFFFFFF"/>
+
+        <View
+            android:id="@+id/tv_online_dot"
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/bg_online_dot"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_member_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FF1F2430"/>
+
+    <!-- 班主任标签（普通成员隐藏） -->
+    <TextView
+        android:id="@+id/tv_creator_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_creator_badge"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:text="班主任"
+        android:textSize="11sp"
+        android:textColor="#FFFFFFFF"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_member_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:layout_marginStart="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textSize="12.5sp"
+        android:textColor="#FF2E9E63"
+        android:background="@drawable/bg_status_online"/>
+
+</LinearLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/ecoBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="📝 题目"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/ecoPrimary"/>
+
+                <ImageView
+                    android:id="@+id/iv_stem_img"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    android:tint="?attr/ecoPrimary"
+                    android:visibility="gone"
+                    android:contentDescription="题干图片"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_stem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textColor="?attr/ecoTextPrimary"
+                android:lineSpacingExtra="6dp"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="✏️ 选项"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/ecoPrimary"/>
+
+                <ImageView
+                    android:id="@+id/iv_option_img"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    android:tint="?attr/ecoPrimary"
+                    android:visibility="gone"
+                    android:contentDescription="选项图片"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rg_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:gravity="center"
+                android:background="@color/error_light"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_answer_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="正确答案："
+                    android:textSize="14sp"
+                    android:textColor="?attr/ecoTextSecondary"/>
+
+                <ImageView
+                    android:id="@+id/iv_answer_img"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    android:tint="?attr/ecoPrimary"
+                    android:visibility="gone"
+                    android:contentDescription="答案图片"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textColor="@color/green"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_analysis_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="💡 解析："
+                    android:textSize="14sp"
+                    android:textColor="?attr/ecoTextSecondary"/>
+
+                <ImageView
+                    android:id="@+id/iv_analysis_img"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    android:tint="?attr/ecoPrimary"
+                    android:visibility="gone"
+                    android:contentDescription="解析图片"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_analysis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="?attr/ecoTextPrimary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="6dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

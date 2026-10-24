@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="?attr/ecoBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/layout_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:cardBackgroundColor="@color/secondary"
+                app:cardCornerRadius="40dp"
+                app:cardElevation="@dimen/elevation_large">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="注"
+                        android:textSize="@dimen/text_size_xlarge"
+                        android:textColor="?attr/ecoOnPrimary"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注册账号"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoTextPrimary"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="创建您的专属学习账号"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="?attr/ecoCardBg"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_large"
+            android:padding="@dimen/card_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_reg_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="设置账号"
+                    style="@style/TextInputLayout.Custom">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_reg_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_height"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="@dimen/text_size_medium"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_reg_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="设置密码（至少6位）"
+                    style="@style/TextInputLayout.Custom"
+                    app:passwordToggleEnabled="true"
+                    android:layout_marginTop="@dimen/card_margin">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_reg_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_height"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textSize="@dimen/text_size_medium"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_reg_password_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="确认密码"
+                    style="@style/TextInputLayout.Custom"
+                    app:passwordToggleEnabled="true"
+                    android:layout_marginTop="@dimen/card_margin">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_reg_password_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_height"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textSize="@dimen/text_size_medium"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:text="注 册"
+                    android:textSize="@dimen/text_size_medium"
+                    style="@style/Button.Primary"
+                    android:layout_marginTop="@dimen/layout_margin"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tv_to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已有账号？返回登录"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="?attr/ecoPrimary"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+</ScrollView>

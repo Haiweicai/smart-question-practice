@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/ecoSurface"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择答题模式"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <LinearLayout
+            android:id="@+id/tv_mode_sequence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/mode_item_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📚"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="顺序模式"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/ecoTextPrimary"
+                    android:layout_marginLeft="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="简单"
+                    android:textSize="12sp"
+                    android:textColor="@color/green"
+                    android:background="@color/success_light"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:layout_marginLeft="8dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="按照题库原始顺序逐题练习，适合初次学习和基础巩固"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="36dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tv_mode_random"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/mode_item_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎲"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="随机模式"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/ecoTextPrimary"
+                    android:layout_marginLeft="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中等"
+                    android:textSize="12sp"
+                    android:textColor="@color/warning"
+                    android:background="@color/yellow_light"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:layout_marginLeft="8dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="打乱题目顺序练习，检验真实掌握程度，适合复习巩固"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="36dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tv_mode_memorize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/mode_item_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📖"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="背题模式"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/ecoTextPrimary"
+                    android:layout_marginLeft="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="入门"
+                    android:textSize="12sp"
+                    android:textColor="?attr/ecoPrimary"
+                    android:background="?attr/ecoPrimaryLightBg"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:layout_marginLeft="8dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="直接查看答案和解析，快速记忆知识点，适合考前速记"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="36dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tv_mode_special"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/mode_item_bg"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎯"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="专项练习"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/ecoTextPrimary"
+                    android:layout_marginLeft="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="进阶"
+                    android:textSize="12sp"
+                    android:textColor="@color/error"
+                    android:background="@color/error_light"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:layout_marginLeft="8dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="按题型分类练习，针对性突破薄弱环节，适合强化训练"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="36dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

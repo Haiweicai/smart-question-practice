@@ -1,0 +1,208 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.StudyTest" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Material 属性映射到 eco 主题属性；子主题覆盖 eco 即可联动 Material 组件（开关/输入框/进度条等） -->
+        <item name="colorPrimary">?attr/ecoPrimary</item>
+        <item name="colorPrimaryDark">?attr/ecoPrimaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorOnPrimary">?attr/ecoOnPrimary</item>
+        <item name="colorOnSecondary">?attr/ecoOnPrimary</item>
+        <item name="colorOnBackground">?attr/ecoTextPrimary</item>
+        <item name="colorSurface">?attr/ecoSurface</item>
+        <item name="colorOnSurface">?attr/ecoTextPrimary</item>
+        <item name="android:colorBackground">?attr/ecoBackground</item>
+        <!-- eco 默认色值（= 紫蓝默认主题）；各色主题在 themes_eye_care.xml 覆盖 -->
+        <item name="ecoSurface">#FFFFFFFF</item>
+        <item name="ecoOnPrimary">#FFFFFFFF</item>
+        <item name="ecoBackground">#FFFAFAFA</item>
+        <item name="ecoCardBg">#FFFFFFFF</item>
+        <item name="ecoPrimaryLightBg">#FFE3F2FD</item>
+        <item name="ecoEmptyBg">#FFE3F2FD</item>
+        <item name="ecoPrimary">#FF1976D2</item>
+        <item name="ecoPrimaryLight">#FF42A5F5</item>
+        <item name="ecoPrimaryDark">#FF1565C0</item>
+        <item name="ecoTextPrimary">#FF212121</item>
+        <item name="ecoTextSecondary">#FF757575</item>
+        <item name="ecoTextHint">#FFBDBDBD</item>
+        <item name="ecoGradientStart">#FF667EEA</item>
+        <item name="ecoGradientEnd">#FF764BA2</item>
+        <item name="ecoBottomNavBg">#FFFFFFFF</item>
+        <item name="ecoBottomNavIcon">#FF757575</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.HeadlineMedium</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.TitleMedium</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.LabelSmall</item>
+        <!-- 弹框风格：Material3 弹框（MaterialAlertDialogBuilder）走统一白底圆角主题。
+             不要覆盖 alertDialogTheme / android:alertDialogTheme——AppCompat 与系统
+             AlertDialog 使用带 windowBackground 的主题覆盖后，按钮区会渲染成
+             "圆圈+连线"异常图形且按钮不可见（实测多个机型），保持平台默认渲染按钮才正常。
+             重要操作弹窗一律用自定义 Dialog（R.style.CustomDialog + dialog_bg）。 -->
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+    </style>
+
+    <style name="Theme.StudyTest" parent="Base.Theme.StudyTest" />
+
+    <style name="TextAppearance.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">?attr/ecoTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">?attr/ecoTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">?attr/ecoTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">?attr/ecoTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">?attr/ecoTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?attr/ecoTextSecondary</item>
+    </style>
+
+    <style name="TextAppearance.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">?attr/ecoTextHint</item>
+    </style>
+
+    <style name="TextAppearance.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">?attr/ecoTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">?attr/ecoTextSecondary</item>
+    </style>
+
+    <style name="TextAppearance.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">?attr/ecoTextHint</item>
+    </style>
+
+    <style name="Button.Primary" parent="Widget.Material3.Button.ElevatedButton">
+        <item name="android:textColor">?attr/ecoOnPrimary</item>
+        <item name="backgroundTint">?attr/ecoPrimary</item>
+        <item name="cornerRadius">@dimen/corner_radius_large</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="elevation">@dimen/elevation_small</item>
+    </style>
+
+    <style name="Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">?attr/ecoPrimary</item>
+        <item name="cornerRadius">@dimen/corner_radius_large</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+    </style>
+
+    <style name="Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">?attr/ecoPrimary</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+    </style>
+
+    <style name="Button.Small" parent="Widget.Material3.Button.ElevatedButton">
+        <item name="android:textColor">?attr/ecoOnPrimary</item>
+        <item name="backgroundTint">?attr/ecoPrimary</item>
+        <item name="cornerRadius">18dp</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="elevation">@dimen/elevation_small</item>
+    </style>
+
+    <style name="CardView.Custom" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">?attr/ecoCardBg</item>
+        <item name="cardCornerRadius">@dimen/corner_radius_large</item>
+        <item name="cardElevation">@dimen/elevation</item>
+    </style>
+
+    <style name="CardView.Large" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">?attr/ecoCardBg</item>
+        <item name="cardCornerRadius">@dimen/corner_radius_large</item>
+        <item name="cardElevation">@dimen/elevation_large</item>
+    </style>
+
+    <style name="CardView.Small" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">?attr/ecoCardBg</item>
+        <item name="cardCornerRadius">@dimen/corner_radius</item>
+        <item name="cardElevation">@dimen/elevation_small</item>
+    </style>
+
+    <style name="TextInputLayout.Custom" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">?attr/ecoTextHint</item>
+        <item name="android:textColorHint">?attr/ecoTextHint</item>
+    </style>
+
+    <style name="CustomDialog" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/dialog_bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <!-- ==================== 全局弹框统一主题 ==================== -->
+    <!-- 圆角与 dialog_bg / 答题卡弹框保持一致（corner_radius_large = 20dp） -->
+    <style name="ShapeAppearance.App.Dialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius_large</item>
+    </style>
+
+    <style name="TextAppearance.App.DialogTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/ecoTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.App.DialogBody" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?attr/ecoTextSecondary</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+    </style>
+
+    <!-- 确认按钮：主色填充，白底白字，与答题卡"交卷"按钮一致 -->
+    <style name="Widget.App.Dialog.Button.Positive" parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">?attr/ecoPrimary</item>
+        <item name="android:textColor">?attr/ecoOnPrimary</item>
+        <item name="cornerRadius">@dimen/corner_radius_large</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
+
+    <!-- 取消/中性按钮：文字按钮，灰色 -->
+    <style name="Widget.App.Dialog.Button.Negative" parent="Widget.Material3.Button.TextButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/ecoTextSecondary</item>
+        <item name="cornerRadius">@dimen/corner_radius_large</item>
+        <item name="android:minHeight">44dp</item>
+    </style>
+
+    <!-- Material3 弹框（MaterialAlertDialogBuilder 直接生效）
+         注意：不要覆盖 buttonBar*ButtonStyle —— Material3 的 m3_alert_dialog 布局
+         会用自定义按钮样式生成 LayoutParams，缺少 layout_width 会导致 InflateException 崩溃。
+         Material3 默认按钮样式已足够美观，无需自定义。 -->
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">?attr/ecoSurface</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.Dialog</item>
+        <item name="colorPrimary">?attr/ecoPrimary</item>
+    </style>
+
+    <!-- AppCompat 弹框（androidx.appcompat.app.AlertDialog） -->
+    <style name="ThemeOverlay.App.AppCompatAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/dialog_bg</item>
+        <item name="colorPrimary">?attr/ecoPrimary</item>
+        <item name="colorAccent">?attr/ecoPrimary</item>
+        <item name="android:textColorPrimary">?attr/ecoTextPrimary</item>
+        <item name="android:textColorSecondary">?attr/ecoTextSecondary</item>
+    </style>
+</resources>

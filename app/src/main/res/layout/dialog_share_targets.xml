@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/ecoSurface"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <View
+            android:layout_width="72dp"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="分享给"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"
+            android:gravity="center"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_scan"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:text="扫描"
+            android:textSize="13sp"
+            android:minWidth="0dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:textColor="?attr/ecoPrimary"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_selected_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="已选 0 个题库"
+        android:textSize="@dimen/text_size_normal"
+        android:textColor="?attr/ecoTextSecondary"
+        android:gravity="center"
+        android:layout_marginTop="6dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_targets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:overScrollMode="never"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textSize="@dimen/text_size_normal"
+            style="@style/Button.Text"
+            android:textColor="?attr/ecoTextSecondary"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_share"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:minHeight="0dp"
+            android:background="@drawable/bg_share_button"
+            android:text="分享(0)"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginLeft="12dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 护眼模式主题属性：布局/ drawable 引用 ?attr/ecoXxx，由当前主题提供色值。
+     默认色值在 Base.Theme.StudyTest 中定义；各色主题（Green/Yellow/Blue/Pink/Black）覆盖。 -->
+<resources>
+    <attr name="ecoSurface" format="color" />          <!-- 卡片/表面背景（原 white-surface 语义、card_bg_light） -->
+    <attr name="ecoOnPrimary" format="color" />        <!-- 主色按钮上的文字/图标（原 white-text 语义） -->
+    <attr name="ecoBackground" format="color" />        <!-- 根背景（原 background） -->
+    <attr name="ecoCardBg" format="color" />           <!-- 卡片背景（原 background_card） -->
+    <attr name="ecoPrimaryLightBg" format="color" />    <!-- 主色浅背景（原 primary_light_bg） -->
+    <attr name="ecoEmptyBg" format="color" />          <!-- 空状态背景（原 empty_bg） -->
+    <attr name="ecoPrimary" format="color" />          <!-- 主色（原 primary） -->
+    <attr name="ecoPrimaryLight" format="color" />     <!-- 主色浅（原 primary_light） -->
+    <attr name="ecoPrimaryDark" format="color" />      <!-- 主色深（原 primary_dark） -->
+    <attr name="ecoTextPrimary" format="color" />      <!-- 主文字（原 text_primary） -->
+    <attr name="ecoTextSecondary" format="color" />     <!-- 次文字（原 text_secondary） -->
+    <attr name="ecoTextHint" format="color" />         <!-- 提示文字（原 text_hint） -->
+    <attr name="ecoGradientStart" format="color" />    <!-- 渐变起（原 gradient_start） -->
+    <attr name="ecoGradientEnd" format="color" />      <!-- 渐变止（原 gradient_end） -->
+    <attr name="ecoBottomNavBg" format="color" />      <!-- 底栏背景（原 bottom_nav_bg） -->
+    <attr name="ecoBottomNavIcon" format="color" />    <!-- 底栏未选中图标（原 bottom_nav_icon） -->
+</resources>

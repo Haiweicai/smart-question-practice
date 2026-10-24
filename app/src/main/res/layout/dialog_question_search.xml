@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_bg">
+
+    <!-- 标题行 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="16dp"
+        android:paddingTop="18dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="搜索题目"
+            android:textSize="@dimen/text_size_xlarge"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <TextView
+            android:id="@+id/btn_search_close"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="×"
+            android:textSize="26sp"
+            android:textColor="?attr/ecoTextSecondary"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- 搜索输入框 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/et_search_query"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="关键词 / 知识点，纯数字=题号"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="?attr/ecoTextPrimary"
+            android:textColorHint="?attr/ecoTextHint"
+            android:maxLines="1"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/edittext_border"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:importantForAutofill="no"/>
+
+        <TextView
+            android:id="@+id/btn_search_clear"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="6dp"
+            android:text="✕"
+            android:textSize="15sp"
+            android:textColor="?attr/ecoTextSecondary"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <!-- 题型筛选 + 精确匹配 -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_chip_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoOnPrimary"
+                android:background="@drawable/filter_tag_selected_bg"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginRight="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_chip_single"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="单选"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextSecondary"
+                android:background="@drawable/filter_tag_bg"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginRight="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_chip_multiple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="多选"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextSecondary"
+                android:background="@drawable/filter_tag_bg"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginRight="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_chip_judge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="判断"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextSecondary"
+                android:background="@drawable/filter_tag_bg"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginRight="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_chip_fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="填空"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextSecondary"
+                android:background="@drawable/filter_tag_bg"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginRight="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_chip_essay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="简答"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextSecondary"
+                android:background="@drawable/filter_tag_bg"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginRight="10dp"/>
+
+            <CheckBox
+                android:id="@+id/cb_search_exact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="精确匹配"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextSecondary"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/divider"/>
+
+    <!-- 结果统计 -->
+    <TextView
+        android:id="@+id/tv_search_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="输入关键词开始搜索"
+        android:textSize="@dimen/text_size_normal"
+        android:textColor="?attr/ecoTextHint"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"/>
+
+    <!-- 结果列表：大点击区域，卡片式条目 -->
+    <ListView
+        android:id="@+id/lv_search_results"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:divider="@color/divider"
+        android:dividerHeight="1dp"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>

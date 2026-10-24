@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/ecoBackground">
+
+    <!-- ============== 顶部标题栏（与考试页一致的蓝渐变） ============== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        android:background="@drawable/top_bar_bg">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="‹ 返回"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoPrimary"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="12dp"/>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_exam"
+            android:contentDescription="模拟考试"
+            android:tint="?attr/ecoPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="组卷配置"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_toolbar_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 题 · 0 分"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoPrimary"
+            android:background="@drawable/badge_bg_primary"
+            android:paddingVertical="4dp"
+            android:paddingHorizontal="10dp"/>
+    </LinearLayout>
+
+    <!-- ============== 滚动内容区（与底部按钮留出空间） ============== -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="96dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <!-- ========== 摘要信息卡：选中题库 + 结构预览 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:rippleColor="?attr/ecoPrimaryLightBg"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:background="@drawable/config_summary_bg">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📘"
+                            android:textSize="22sp"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:text="题库来源"
+                            android:textColor="?attr/ecoOnPrimary"
+                            android:textStyle="bold"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_bank_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 个"
+                            android:textColor="?attr/ecoOnPrimary"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:alpha="0.95"
+                            android:background="@drawable/badge_bg_success"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_bank_names"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="尚未选择题库，请先选择至少一个题库"
+                        android:textSize="13sp"
+                        android:textColor="?attr/ecoOnPrimary"
+                        android:alpha="0.85"
+                        android:lineSpacingExtra="3dp"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        tools:text="· 计算机基础知识\n· 数据结构 · 计算机网络"/>
+
+                    <!-- 题型结构预览彩色条（按单选蓝/多选橙/判断绿/填空紫/简答红） -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:id="@+id/strip_single"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:background="?attr/ecoPrimary"/>
+                        <View
+                            android:id="@+id/strip_multi"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:background="@color/warning"/>
+                        <View
+                            android:id="@+id/strip_judge"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0"/>
+                        <View
+                            android:id="@+id/strip_fill"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0"/>
+                        <View
+                            android:id="@+id/strip_essay"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0"/>
+                    </LinearLayout>
+
+                    <!-- 题型结构图例 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView style="@style/ConfigLegend" android:text="🔵 单选" android:id="@+id/legend_single"/>
+                        <TextView style="@style/ConfigLegend" android:text="🟠 多选" android:id="@+id/legend_multi"/>
+                        <TextView style="@style/ConfigLegend" android:text="🟢 判断" android:id="@+id/legend_judge"/>
+                        <TextView style="@style/ConfigLegend" android:text="🟣 填空" android:id="@+id/legend_fill"/>
+                        <TextView style="@style/ConfigLegend" android:text="🔴 简答" android:id="@+id/legend_essay"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 一、考试名称 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Custom"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout style="@style/CardInnerVertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/badge_bg_primary"
+                            android:gravity="center"
+                            android:text="①"
+                            android:textStyle="bold"
+                            android:textColor="?attr/ecoPrimary"
+                            android:textSize="15sp"/>
+
+                        <TextView
+                            style="@style/ExamSectionTitle"
+                            android:layout_marginStart="10dp"
+                            android:text="基本信息"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_marginTop="14dp"
+                        style="@style/ExamCountName"
+                        android:text="考试名称"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/et_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:minHeight="48dp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_size_normal"
+                        android:textColor="?attr/ecoTextPrimary"
+                        android:background="@drawable/edittext_border"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:hint="如：Python 期中模拟考"
+                        android:textColorHint="?attr/ecoTextHint"/>
+
+                    <TextView
+                        style="@style/ExamHintText"
+                        android:text="系统会自动补默认名，建议输入能区分的名称以便在考试记录中快速查找。"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 二、题型与题数 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Custom"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout style="@style/CardInnerVertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/badge_bg_success"
+                            android:gravity="center"
+                            android:text="②"
+                            android:textStyle="bold"
+                            android:textColor="@color/success"
+                            android:textSize="15sp"/>
+                        <TextView
+                            style="@style/ExamSectionTitle"
+                            android:layout_marginStart="10dp"
+                            android:text="题型与题量设置"/>
+                    </LinearLayout>
+
+                    <!-- 单选 -->
+                    <LinearLayout style="@style/ExamCountRow">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:background="@drawable/badge_bg_primary"
+                                android:gravity="center"
+                                android:text="●"
+                                android:textColor="?attr/ecoPrimary"
+                                android:textStyle="bold"
+                                android:textSize="14sp"/>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="10dp">
+                                <TextView style="@style/ExamCountName" android:text="单选题"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:id="@+id/tv_avail_single"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    style="@style/ExamCountAvail"
+                                    android:background="@drawable/badge_bg_success"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingVertical="2dp"
+                                    android:textColor="@color/success"
+                                    android:text="可用 20 道"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <TextView android:id="@+id/btn_single_minus" style="@style/ExamStepBtn" android:text="－"/>
+                        <EditText
+                            android:id="@+id/et_single_count"
+                            style="@style/ExamCountInput"
+                            android:inputType="number"
+                            android:text="5"/>
+                        <TextView android:id="@+id/btn_single_plus" style="@style/ExamStepBtn" android:text="＋"/>
+                    </LinearLayout>
+
+                    <!-- 多选 -->
+                    <LinearLayout style="@style/ExamCountRow">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:background="@drawable/badge_bg_warning"
+                                android:gravity="center"
+                                android:text="☐"
+                                android:textColor="@color/warning"
+                                android:textStyle="bold"
+                                android:textSize="14sp"/>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="10dp">
+                                <TextView style="@style/ExamCountName" android:text="多选题"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:id="@+id/tv_avail_multi"
+                                    style="@style/ExamCountAvail"
+                                    android:background="@drawable/badge_bg_success"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingVertical="2dp"
+                                    android:textColor="@color/success"
+                                    android:text="可用 5 道"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <TextView android:id="@+id/btn_multi_minus" style="@style/ExamStepBtn" android:text="－"/>
+                        <EditText
+                            android:id="@+id/et_multi_count"
+                            style="@style/ExamCountInput"
+                            android:inputType="number"
+                            android:text="5"/>
+                        <TextView android:id="@+id/btn_multi_plus" style="@style/ExamStepBtn" android:text="＋"/>
+                    </LinearLayout>
+
+                    <!-- 判断 -->
+                    <LinearLayout style="@style/ExamCountRow">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:background="@drawable/badge_bg_success"
+                                android:gravity="center"
+                                android:text="✓/✗"
+                                android:textColor="@color/success"
+                                android:textStyle="bold"
+                                android:textSize="11sp"/>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="10dp">
+                                <TextView style="@style/ExamCountName" android:text="判断题"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:id="@+id/tv_avail_judge"
+                                    style="@style/ExamCountAvail"
+                                    android:background="@drawable/badge_bg_success"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingVertical="2dp"
+                                    android:textColor="@color/success"
+                                    android:text="可用 0 道"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <TextView android:id="@+id/btn_judge_minus" style="@style/ExamStepBtn" android:text="－"/>
+                        <EditText
+                            android:id="@+id/et_judge_count"
+                            style="@style/ExamCountInput"
+                            android:inputType="number"
+                            android:text="0"/>
+                        <TextView android:id="@+id/btn_judge_plus" style="@style/ExamStepBtn" android:text="＋"/>
+                    </LinearLayout>
+
+                    <!-- 填空 -->
+                    <LinearLayout style="@style/ExamCountRow">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:background="@drawable/filter_tag_bg"
+                                android:gravity="center"
+                                android:text="＿"
+                                android:textColor="?attr/ecoPrimary"
+                                android:textStyle="bold"
+                                android:textSize="14sp"/>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="10dp">
+                                <TextView style="@style/ExamCountName" android:text="填空题"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:id="@+id/tv_avail_fill"
+                                    style="@style/ExamCountAvail"
+                                    android:background="@drawable/badge_bg_success"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingVertical="2dp"
+                                    android:textColor="@color/success"
+                                    android:text="可用 0 道"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <TextView android:id="@+id/btn_fill_minus" style="@style/ExamStepBtn" android:text="－"/>
+                        <EditText
+                            android:id="@+id/et_fill_count"
+                            style="@style/ExamCountInput"
+                            android:inputType="number"
+                            android:text="0"/>
+                        <TextView android:id="@+id/btn_fill_plus" style="@style/ExamStepBtn" android:text="＋"/>
+                    </LinearLayout>
+
+                    <!-- 简答 -->
+                    <LinearLayout style="@style/ExamCountRow">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:background="@drawable/badge_bg_error"
+                                android:gravity="center"
+                                android:text="✎"
+                                android:textColor="@color/error"
+                                android:textStyle="bold"
+                                android:textSize="16sp"/>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="10dp">
+                                <TextView style="@style/ExamCountName" android:text="简答题"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:id="@+id/tv_avail_essay"
+                                    style="@style/ExamCountAvail"
+                                    android:background="@drawable/badge_bg_success"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingVertical="2dp"
+                                    android:textColor="@color/success"
+                                    android:text="可用 0 道"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <TextView android:id="@+id/btn_essay_minus" style="@style/ExamStepBtn" android:text="－"/>
+                        <EditText
+                            android:id="@+id/et_essay_count"
+                            style="@style/ExamCountInput"
+                            android:inputType="number"
+                            android:text="0"/>
+                        <TextView android:id="@+id/btn_essay_plus" style="@style/ExamStepBtn" android:text="＋"/>
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/ExamHintText"
+                        android:layout_marginTop="16dp"
+                        android:text="📌 考试中题目的出现顺序：单选 → 多选 → 判断 → 填空 → 简答（每类题型内部随机）。"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 三、考试规则 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Custom"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout style="@style/CardInnerVertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/badge_bg_warning"
+                            android:gravity="center"
+                            android:text="③"
+                            android:textStyle="bold"
+                            android:textColor="@color/warning"
+                            android:textSize="15sp"/>
+                        <TextView
+                            style="@style/ExamSectionTitle"
+                            android:layout_marginStart="10dp"
+                            android:text="考试规则"/>
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/ExamFieldRow"
+                        android:layout_marginTop="14dp">
+                        <TextView style="@style/ExamFieldName" android:text="考试时长（分钟）"/>
+                        <EditText
+                            android:id="@+id/et_duration"
+                            style="@style/ExamCountInput"
+                            android:inputType="number"
+                            android:text="60"/>
+                    </LinearLayout>
+                    <TextView
+                        style="@style/ExamHintText"
+                        android:text="⏰ 建议 5 ~ 300 分钟；时间到将自动保存并交卷（计时不暂停，包括切后台）"/>
+
+                    <LinearLayout style="@style/ExamFieldRow">
+                        <LinearLayout style="@style/ExamCountLabelBox">
+                            <TextView style="@style/ExamCountName" android:text="允许切后台次数"
+                                android:textStyle="bold"/>
+                            <TextView
+                                style="@style/ExamCountAvail"
+                                android:text="离开考试页/切后台即计入一次"/>
+                        </LinearLayout>
+                        <TextView android:id="@+id/btn_switch_minus" style="@style/ExamStepBtn" android:text="－"/>
+                        <TextView
+                            android:id="@+id/tv_switch_count"
+                            style="@style/ExamCountInput"
+                            android:gravity="center"
+                            android:text="3"/>
+                        <TextView android:id="@+id/btn_switch_plus" style="@style/ExamStepBtn" android:text="＋"/>
+                    </LinearLayout>
+                    <TextView
+                        style="@style/ExamHintText"
+                        android:text="🚫 设为 0 表示不允许切后台，一旦离开考试界面立即强制交卷"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 四、客观题每题分值 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Custom"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout style="@style/CardInnerVertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/filter_tag_selected_bg"
+                            android:gravity="center"
+                            android:text="④"
+                            android:textStyle="bold"
+                            android:textColor="?attr/ecoPrimary"
+                            android:textSize="15sp"/>
+                        <TextView
+                            style="@style/ExamSectionTitle"
+                            android:layout_marginStart="10dp"
+                            android:text="客观题分值设置"/>
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/ExamFieldRow"
+                        android:layout_marginTop="14dp">
+                        <TextView style="@style/ExamFieldName" android:text="🔵 单选（分/题）"/>
+                        <EditText
+                            android:id="@+id/et_single_score"
+                            style="@style/ExamCountInput"
+                            android:inputType="numberDecimal"
+                            android:text="1"/>
+                    </LinearLayout>
+                    <LinearLayout style="@style/ExamFieldRow">
+                        <TextView style="@style/ExamFieldName" android:text="🟠 多选（分/题）"/>
+                        <EditText
+                            android:id="@+id/et_multi_score"
+                            style="@style/ExamCountInput"
+                            android:inputType="numberDecimal"
+                            android:text="2"/>
+                    </LinearLayout>
+                    <LinearLayout style="@style/ExamFieldRow">
+                        <TextView style="@style/ExamFieldName" android:text="🟢 判断（分/题）"/>
+                        <EditText
+                            android:id="@+id/et_judge_score"
+                            style="@style/ExamCountInput"
+                            android:inputType="numberDecimal"
+                            android:text="1"/>
+                    </LinearLayout>
+                    <TextView
+                        style="@style/ExamHintText"
+                        android:text="💡 多选必须全部选对方可得满分；本题分值仅对参加本次考试的题型生效；不参加的题型设置会被忽略。"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 五、主观题每题分值 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Custom"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout style="@style/CardInnerVertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/badge_bg_error"
+                            android:gravity="center"
+                            android:text="⑤"
+                            android:textStyle="bold"
+                            android:textColor="@color/error"
+                            android:textSize="15sp"/>
+                        <TextView
+                            style="@style/ExamSectionTitle"
+                            android:layout_marginStart="10dp"
+                            android:text="主观题分值设置"/>
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/ExamFieldRow"
+                        android:layout_marginTop="14dp">
+                        <TextView style="@style/ExamFieldName" android:text="🟣 填空（分/题）"/>
+                        <EditText
+                            android:id="@+id/et_fill_score"
+                            style="@style/ExamCountInput"
+                            android:inputType="numberDecimal"
+                            android:text="5"/>
+                    </LinearLayout>
+                    <LinearLayout style="@style/ExamFieldRow">
+                        <TextView style="@style/ExamFieldName" android:text="🔴 简答（分/题）"/>
+                        <EditText
+                            android:id="@+id/et_essay_score"
+                            style="@style/ExamCountInput"
+                            android:inputType="numberDecimal"
+                            android:text="10"/>
+                    </LinearLayout>
+                    <TextView
+                        style="@style/ExamHintText"
+                        android:text="📝 主观题分数为阅卷时的上限分；交卷后先进入结果页，再逐题对照参考答案自行打分。"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 六、答题模式 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Custom"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout style="@style/CardInnerVertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/badge_bg_secondary"
+                            android:gravity="center"
+                            android:text="⑥"
+                            android:textStyle="bold"
+                            android:textColor="?attr/ecoOnPrimary"
+                            android:textSize="15sp"/>
+                        <TextView
+                            style="@style/ExamSectionTitle"
+                            android:layout_marginStart="10dp"
+                            android:text="答题模式"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="16dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="启用不定项选择模式"
+                                android:textSize="@dimen/text_size_normal"
+                                android:textStyle="bold"
+                                android:textColor="?attr/ecoTextPrimary"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="选择题不区分单选/多选，统一复选框作答"
+                                android:textSize="@dimen/text_size_small"
+                                android:textColor="?attr/ecoTextSecondary"
+                                android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switch_indefinite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/ExamHintText"
+                        android:text="🔓 开启后所有选择题统一显示为复选框样式，不显示题型提示；用户可勾选任意数量选项，判分时按实际答案比对（单选题多选则判错）。"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="16dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="启用选项顺序随机"
+                                android:textSize="@dimen/text_size_normal"
+                                android:textStyle="bold"
+                                android:textColor="?attr/ecoTextPrimary"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="单选/多选题选项顺序按场随机打乱"
+                                android:textSize="@dimen/text_size_small"
+                                android:textColor="?attr/ecoTextSecondary"
+                                android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switch_shuffle_options"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/ExamHintText"
+                        android:text="🔀 开启后每场考试中每道单选/多选题的 A/B/C/D 选项顺序独立随机生成，不同考生、不同考试实例顺序各不相同；系统自动同步正确答案位置，不影响判分准确性。"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 底部占位（供 ScrollView 用的 marginBottom padding 已在根部处理） ========== -->
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ============== 底部 Sticky CTA 栏：汇总预览 + 开始考试按钮 ============== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="12dp"
+        android:background="?attr/ecoSurface"
+        app:elevation="6dp">
+
+        <TextView
+            android:id="@+id/tv_total_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="共 0 题 · 满分 0 分 · 0 分钟"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_start_exam"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="56dp"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                android:alpha="0.5"
+                android:text="▶ 开始考试"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                style="@style/Button.Primary"
+                app:iconSize="22dp"
+                app:cornerRadius="18dp"/>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_lan_exam"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:enabled="false"
+            android:alpha="0.5"
+            android:text="📡 局域网考试"
+            android:textSize="15sp"
+            android:textColor="?attr/ecoPrimary"
+            app:backgroundTint="?attr/ecoSurface"
+            app:strokeColor="?attr/ecoPrimary"
+            app:strokeWidth="1.5dp"
+            app:cornerRadius="18dp"/>
+    </LinearLayout>
+
+</LinearLayout>

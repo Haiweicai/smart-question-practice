@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 考试条目快捷按钮：浅蓝底（在考人数 / 已交卷人员） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FFEAF3FC"/>
+    <corners android:radius="16dp"/>
+</shape>

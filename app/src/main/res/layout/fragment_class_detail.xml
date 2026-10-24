@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 班级详情页：顶栏（返回/标题/更多）+ 班级信息（深色图标块+名称/班级码/简介）
+     + 添加成员/添加题库大按钮 + 4 宫格功能（题库练习/成员管理/发布考试/学情统计） -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF5F6F8">
+
+    <!-- ===== 顶栏：返回（左）+ 班级详情（居中）+ 更多（右） ===== -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFFFF">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="6dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_back_bank"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="返回"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="班级详情"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FF222222"/>
+
+        <ImageView
+            android:id="@+id/btn_more"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="6dp"
+            android:padding="9dp"
+            android:src="@drawable/ic_more"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="更多"/>
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ===== 班级信息区 ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="#FFFFFFFF"
+                android:padding="16dp">
+
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_class_icon_dark">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_class_members_white"
+                        android:contentDescription="班级图标"/>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="14dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_class_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF222222"/>
+
+                    <!-- 班级码 + 复制 -->
+                    <LinearLayout
+                        android:id="@+id/row_copy_code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="6dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp">
+
+                        <TextView
+                            android:id="@+id/tv_class_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="#FF777777"/>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="6dp"
+                            android:padding="2dp"
+                            android:src="@drawable/ic_copy"
+                            android:contentDescription="复制班级码"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="复制"
+                            android:textSize="14sp"
+                            android:textColor="#FF777777"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_class_intro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textSize="14sp"
+                        android:textColor="#FF777777"
+                        android:maxLines="1"
+                        android:ellipsize="end"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ===== 添加成员 / 添加题库 大按钮区 ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp">
+
+                <!-- 添加成员 -->
+                <FrameLayout
+                    android:id="@+id/btn_add_member"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_btn_add_member"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <FrameLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="22dp"
+                        android:background="@drawable/bg_circle_blue">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_add"
+                            app:tint="#FF4A90D9"
+                            android:contentDescription="添加成员"/>
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="添加成员"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF222222"/>
+
+                </FrameLayout>
+
+                <!-- 添加题库 -->
+                <FrameLayout
+                    android:id="@+id/btn_add_bank"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_btn_add_bank"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <FrameLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="22dp"
+                        android:background="@drawable/bg_circle_purple">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_add"
+                            app:tint="#FF9B6BD1"
+                            android:contentDescription="添加题库"/>
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="添加题库"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF222222"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- ===== 4 宫格功能区 ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#FFFFFFFF"
+                android:paddingTop="22dp"
+                android:paddingBottom="26dp">
+
+                <!-- 题库练习 -->
+                <LinearLayout
+                    android:id="@+id/grid_bank_practice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_func_doc_add"
+                        android:contentDescription="题库练习"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="题库练习"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF333333"/>
+
+                    <TextView
+                        android:id="@+id/tv_grid_bank_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="共0个题库"
+                        android:textSize="11sp"
+                        android:textColor="#FFAAAAAA"/>
+
+                </LinearLayout>
+
+                <!-- 成员管理 -->
+                <LinearLayout
+                    android:id="@+id/grid_member_manage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_func_member_manage"
+                        android:contentDescription="成员管理"/>
+
+                    <TextView
+                        android:id="@+id/tv_grid_member_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="成员管理"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF333333"/>
+
+                    <TextView
+                        android:id="@+id/tv_grid_member_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="共0个成员"
+                        android:textSize="11sp"
+                        android:textColor="#FFAAAAAA"/>
+
+                </LinearLayout>
+
+                <!-- 发布考试 -->
+                <LinearLayout
+                    android:id="@+id/grid_publish_exam"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_exam"
+                        android:contentDescription="发布考试"/>
+
+                    <TextView
+                        android:id="@+id/tv_grid_exam_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="发布考试"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF333333"/>
+
+                    <TextView
+                        android:id="@+id/tv_grid_exam_sub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="抽题组卷"
+                        android:textSize="11sp"
+                        android:textColor="#FFAAAAAA"/>
+
+                </LinearLayout>
+
+                <!-- 学情统计 -->
+                <LinearLayout
+                    android:id="@+id/grid_statistics"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_func_pie"
+                        android:contentDescription="学情统计"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="学情统计"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF333333"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="学习统计"
+                        android:textSize="11sp"
+                        android:textColor="#FFAAAAAA"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+
+<!-- ===== 右上角更多菜单：遮罩（默认隐藏） ===== -->
+<View
+    android:id="@+id/more_menu_mask"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#66000000"
+    android:visibility="gone"/>
+
+<!-- ===== 右上角更多菜单：从右往左滑入的卡片（默认隐藏） ===== -->
+<FrameLayout
+    android:id="@+id/more_menu_panel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end|top"
+    android:layout_marginTop="50dp"
+    android:layout_marginEnd="10dp"
+    android:visibility="gone">
+
+    <!-- 指向三个点的小三角 -->
+    <View
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="-6dp"
+        android:layout_marginEnd="22dp"
+        android:rotation="45"
+        android:background="#FF4A4A4A"/>
+
+    <LinearLayout
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_class_more_menu"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <!-- 删除班级 -->
+        <LinearLayout
+            android:id="@+id/menu_delete_class"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="22dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_menu_delete_class"
+                android:contentDescription="删除班级"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="删除班级"
+                android:textSize="16sp"
+                android:textColor="#FFFFFFFF"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:minWidth="76dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginEnd="10dp"
+            android:background="#33FFFFFF"/>
+
+        <!-- 编辑班级 -->
+        <LinearLayout
+            android:id="@+id/menu_edit_class"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="22dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_menu_edit_class"
+                android:contentDescription="编辑班级"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="编辑班级"
+                android:textSize="16sp"
+                android:textColor="#FFFFFFFF"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:minWidth="76dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginEnd="10dp"
+            android:background="#33FFFFFF"/>
+
+        <!-- 修改昵称 -->
+        <LinearLayout
+            android:id="@+id/menu_edit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="22dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_menu_edit_name"
+                android:contentDescription="修改昵称"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="修改昵称"
+                android:textSize="16sp"
+                android:textColor="#FFFFFFFF"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
+
+</FrameLayout>

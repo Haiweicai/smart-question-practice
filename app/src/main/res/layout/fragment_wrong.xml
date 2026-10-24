@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/ecoBackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:background="@drawable/header_gradient">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_launcher_background"
+            android:alpha="0.1"
+            android:layout_marginRight="-20dp"
+            android:layout_marginTop="-20dp"/>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_launcher_background"
+            android:alpha="0.1"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginBottom="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="错题本"
+                android:textSize="@dimen/text_size_header"
+                android:textColor="?attr/ecoOnPrimary"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查漏补缺，巩固提升"
+                android:textSize="@dimen/text_size_subtitle"
+                android:textColor="@color/text_white_secondary"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/tv_wrong_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="@dimen/text_size_large"
+                android:textColor="?attr/ecoOnPrimary"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="-16dp"
+        android:paddingLeft="@dimen/layout_padding"
+        android:paddingRight="@dimen/layout_padding">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="?attr/ecoSurface"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_large">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="题库筛选"
+                        android:textSize="@dimen/text_size_normal"
+                        android:textColor="?attr/ecoTextSecondary"
+                        android:layout_marginRight="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_filter_bank"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="全部题库"
+                        android:textSize="@dimen/text_size_medium"
+                        android:textColor="?attr/ecoTextPrimary"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:ellipsize="end"/>
+
+                    <TextView
+                        android:id="@+id/tv_expand_bank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="▼"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="?attr/ecoTextHint"
+                        android:padding="8dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="题型筛选"
+                        android:textSize="@dimen/text_size_normal"
+                        android:textColor="?attr/ecoTextSecondary"
+                        android:layout_marginRight="8dp"/>
+
+                    <HorizontalScrollView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/ll_type_filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_type_all"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="全部"
+                                android:textSize="@dimen/text_size_normal"
+                                android:textColor="?attr/ecoOnPrimary"
+                                android:background="@drawable/filter_tag_selected_bg"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:layout_marginRight="6dp"/>
+
+                            <TextView
+                                android:id="@+id/tv_type_single"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="单选"
+                                android:textSize="@dimen/text_size_normal"
+                                android:textColor="?attr/ecoTextSecondary"
+                                android:background="@drawable/filter_tag_bg"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:layout_marginRight="6dp"/>
+
+                            <TextView
+                                android:id="@+id/tv_type_multiple"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="多选"
+                                android:textSize="@dimen/text_size_normal"
+                                android:textColor="?attr/ecoTextSecondary"
+                                android:background="@drawable/filter_tag_bg"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:layout_marginRight="6dp"/>
+
+                            <TextView
+                                android:id="@+id/tv_type_judge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="判断"
+                                android:textSize="@dimen/text_size_normal"
+                                android:textColor="?attr/ecoTextSecondary"
+                                android:background="@drawable/filter_tag_bg"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:layout_marginRight="6dp"/>
+
+                            <TextView
+                                android:id="@+id/tv_type_fill"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="填空"
+                                android:textSize="@dimen/text_size_normal"
+                                android:textColor="?attr/ecoTextSecondary"
+                                android:background="@drawable/filter_tag_bg"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:layout_marginRight="6dp"/>
+
+                            <TextView
+                                android:id="@+id/tv_type_essay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="简答"
+                                android:textSize="@dimen/text_size_normal"
+                                android:textColor="?attr/ecoTextSecondary"
+                                android:background="@drawable/filter_tag_bg"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:layout_marginRight="6dp"/>
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tv_auto_delete_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚙️ 自动删除设置"
+                        android:textSize="@dimen/text_size_normal"
+                        android:textColor="?attr/ecoTextPrimary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/tv_auto_delete_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="未启用"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="?attr/ecoTextHint"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/layout_padding"
+        android:paddingRight="@dimen/layout_padding"
+        android:paddingTop="12dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_wrong_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:id="@+id/ll_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="@dimen/empty_icon_size"
+                android:layout_height="@dimen/empty_icon_size"
+                app:cardBackgroundColor="?attr/ecoEmptyBg"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎉"
+                        android:textSize="48sp"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="太棒了！暂无错题"
+                android:textSize="@dimen/text_size_large"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="继续刷题，保持好状态"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="?attr/ecoTextHint"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/layout_padding"
+        android:layout_marginRight="@dimen/layout_padding"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btn_practice_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="全部练习"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="?attr/ecoOnPrimary"
+            android:background="@drawable/button_bg"
+            android:padding="14dp"
+            android:layout_marginRight="6dp"/>
+
+        <Button
+            android:id="@+id/btn_delete_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="清空错题"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="#FFFFFFFF"
+            android:backgroundTint="#FFE53935"
+            android:padding="14dp"
+            android:layout_marginLeft="6dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

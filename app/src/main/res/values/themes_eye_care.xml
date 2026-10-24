@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 护眼模式可选色主题：每套覆盖 16 个 eco 属性。
+     Material 属性（colorPrimary/colorSurface 等）已在 Base.Theme.StudyTest 中
+     映射为 ?attr/ecoXxx，故这里只需覆盖 eco 属性，Material 组件自动跟随。
+     运行时由 EyeCareManager.applyTheme() 调 activity.setTheme(R.style.Theme_StudyTest_Xxx)。 -->
+<resources>
+
+    <!-- ============ 豆沙绿（默认护眼色，保留原 values-night 行为） ============ -->
+    <style name="Theme.StudyTest.Green" parent="Theme.StudyTest">
+        <item name="ecoSurface">#FFF5FAF0</item>
+        <item name="ecoOnPrimary">#FFF5FAF0</item>
+        <item name="ecoBackground">#FFE8F5E9</item>
+        <item name="ecoCardBg">#FFF0F7E8</item>
+        <item name="ecoPrimaryLightBg">#FFDCEDC8</item>
+        <item name="ecoEmptyBg">#FFDCEDC8</item>
+        <item name="ecoPrimary">#FF7CB342</item>
+        <item name="ecoPrimaryLight">#FFA5D6A7</item>
+        <item name="ecoPrimaryDark">#FF558B2F</item>
+        <item name="ecoTextPrimary">#FF333333</item>
+        <item name="ecoTextSecondary">#FF666666</item>
+        <item name="ecoTextHint">#FF999999</item>
+        <item name="ecoGradientStart">#FF8BC34A</item>
+        <item name="ecoGradientEnd">#FF689F38</item>
+        <item name="ecoBottomNavBg">#FFF0F7E8</item>
+        <item name="ecoBottomNavIcon">#FF666666</item>
+    </style>
+
+    <!-- ============ 米黄 ============ -->
+    <style name="Theme.StudyTest.Yellow" parent="Theme.StudyTest">
+        <item name="ecoSurface">#FFFFF8DC</item>
+        <item name="ecoOnPrimary">#FFFFF8DC</item>
+        <item name="ecoBackground">#FFFFF8DC</item>
+        <item name="ecoCardBg">#FFFFF3CD</item>
+        <item name="ecoPrimaryLightBg">#FFFFF3CD</item>
+        <item name="ecoEmptyBg">#FFFFF3CD</item>
+        <item name="ecoPrimary">#FFF57C00</item>
+        <item name="ecoPrimaryLight">#FFFFB74D</item>
+        <item name="ecoPrimaryDark">#FFE65100</item>
+        <item name="ecoTextPrimary">#FF5D4037</item>
+        <item name="ecoTextSecondary">#FF8D6E63</item>
+        <item name="ecoTextHint">#FFBCAAA4</item>
+        <item name="ecoGradientStart">#FFFFA000</item>
+        <item name="ecoGradientEnd">#FFFF6F00</item>
+        <item name="ecoBottomNavBg">#FFFFF3CD</item>
+        <item name="ecoBottomNavIcon">#FF8D6E63</item>
+    </style>
+
+    <!-- ============ 浅蓝 ============ -->
+    <style name="Theme.StudyTest.Blue" parent="Theme.StudyTest">
+        <item name="ecoSurface">#FFE3F2FD</item>
+        <item name="ecoOnPrimary">#FFE3F2FD</item>
+        <item name="ecoBackground">#FFE3F2FD</item>
+        <item name="ecoCardBg">#FFEAF3FB</item>
+        <item name="ecoPrimaryLightBg">#FFE3F2FD</item>
+        <item name="ecoEmptyBg">#FFE3F2FD</item>
+        <item name="ecoPrimary">#FF1976D2</item>
+        <item name="ecoPrimaryLight">#FF42A5F5</item>
+        <item name="ecoPrimaryDark">#FF1565C0</item>
+        <item name="ecoTextPrimary">#FF1A237E</item>
+        <item name="ecoTextSecondary">#FF3949AB</item>
+        <item name="ecoTextHint">#FF7986CB</item>
+        <item name="ecoGradientStart">#FF1E88E5</item>
+        <item name="ecoGradientEnd">#FF1565C0</item>
+        <item name="ecoBottomNavBg">#FFEAF3FB</item>
+        <item name="ecoBottomNavIcon">#FF7986CB</item>
+    </style>
+
+    <!-- ============ 浅粉 ============ -->
+    <style name="Theme.StudyTest.Pink" parent="Theme.StudyTest">
+        <item name="ecoSurface">#FFFCE4EC</item>
+        <item name="ecoOnPrimary">#FFFCE4EC</item>
+        <item name="ecoBackground">#FFFCE4EC</item>
+        <item name="ecoCardBg">#FFFBE9EC</item>
+        <item name="ecoPrimaryLightBg">#FFFCE4EC</item>
+        <item name="ecoEmptyBg">#FFFCE4EC</item>
+        <item name="ecoPrimary">#FFD81B60</item>
+        <item name="ecoPrimaryLight">#FFFF4081</item>
+        <item name="ecoPrimaryDark">#FFC2185B</item>
+        <item name="ecoTextPrimary">#FF4A2C38</item>
+        <item name="ecoTextSecondary">#FF7A5560</item>
+        <item name="ecoTextHint">#FFB39298</item>
+        <item name="ecoGradientStart">#FFE91E63</item>
+        <item name="ecoGradientEnd">#FFC2185B</item>
+        <item name="ecoBottomNavBg">#FFFBE9EC</item>
+        <item name="ecoBottomNavIcon">#FF7A5560</item>
+    </style>
+
+    <!-- ============ 深色暗化（黑） ============ -->
+    <style name="Theme.StudyTest.Black" parent="Theme.StudyTest">
+        <item name="ecoSurface">#FF1E1E1E</item>
+        <item name="ecoOnPrimary">#FFEEEEEE</item>
+        <item name="ecoBackground">#FF1E1E1E</item>
+        <item name="ecoCardBg">#FF2B2B2B</item>
+        <item name="ecoPrimaryLightBg">#FF2B2B2B</item>
+        <item name="ecoEmptyBg">#FF2B2B2B</item>
+        <item name="ecoPrimary">#FFCFD8DC</item>
+        <item name="ecoPrimaryLight">#FFB0BEC5</item>
+        <item name="ecoPrimaryDark">#FF78909C</item>
+        <item name="ecoTextPrimary">#FFECECEC</item>
+        <item name="ecoTextSecondary">#FFB0B0B0</item>
+        <item name="ecoTextHint">#FF808080</item>
+        <item name="ecoGradientStart">#FF455A64</item>
+        <item name="ecoGradientEnd">#FF263238</item>
+        <item name="ecoBottomNavBg">#FF2B2B2B</item>
+        <item name="ecoBottomNavIcon">#FFB0B0B0</item>
+    </style>
+
+</resources>

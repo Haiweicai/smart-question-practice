@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 由 image/share_button.svg 手工转换的矢量图：胶囊按钮背景（填充色跟随 ?attr/ecoPrimary，护眼/夜间模式自动切换） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="40dp"
+    android:viewportWidth="1826.4"
+    android:viewportHeight="604.5">
+    <path
+        android:fillColor="?attr/ecoPrimary"
+        android:pathData="M0 0m302.253386 0l1221.875387 0q302.253385 0 302.253386 302.253385l0 0q0 302.253385 -302.253386 302.253386l-1221.875387 0q-302.253385 0 -302.253386 -302.253386l0 0q0 -302.253385 302.253386 -302.253385Z"/>
+</vector>

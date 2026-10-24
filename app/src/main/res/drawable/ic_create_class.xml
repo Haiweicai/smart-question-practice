@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 由 image/createClass.svg 手工转换的矢量图：创建班级（白色，置于深色按钮上） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="1024"
+    android:viewportHeight="1024">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M384 277.331c0-70.4 57.6-128 128-128s128 57.6 128 128-57.6 128-128 128-128-57.6-128-128zM544 507.731c-198.4 0-262.4 185.6-262.4 185.6v96h524.8v-96s-64-185.6-262.4-185.6zM704 245.331c0 51.2 44.8 96 96 96s96-44.8 96-96-44.8-96-96-96-96 44.8-96 96zM825.6 437.331c-51.2 0-89.6 12.8-121.6 44.8 102.4 57.6 140.8 153.6 140.8 166.4v12.8h179.2v-83.2s-51.2-140.8-198.4-140.8zM0 405.331h320v64h-320z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M128 277.331h64v320h-64z"/>
+</vector>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/ecoSurface"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择随机模式"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="挑战不同难度，检验你的真实水平"
+            android:textSize="13sp"
+            android:textColor="?attr/ecoTextSecondary"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <LinearLayout
+            android:id="@+id/tv_normal_random"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/mode_item_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎲"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="普通随机"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/ecoTextPrimary"
+                    android:layout_marginLeft="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中等难度"
+                    android:textSize="12sp"
+                    android:textColor="@color/warning"
+                    android:background="@color/yellow_light"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:layout_marginLeft="8dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="题目顺序随机打乱，选项顺序保持不变。适合熟悉题目后的复习巩固。"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="36dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tv_demon_random"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/mode_item_bg"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="😈"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="魔鬼随机"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/ecoTextPrimary"
+                    android:layout_marginLeft="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="困难"
+                    android:textSize="12sp"
+                    android:textColor="@color/error"
+                    android:background="@color/error_light"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:layout_marginLeft="8dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="题目顺序和选项顺序全部随机打乱，彻底检验真实掌握程度。挑战自己的极限！"
+                android:textSize="13sp"
+                android:textColor="?attr/ecoTextSecondary"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="36dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

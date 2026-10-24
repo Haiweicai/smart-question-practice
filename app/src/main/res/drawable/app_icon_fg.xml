@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 顶部星星（金色五角星，象征成就/满分） -->
+    <path
+        android:pathData="M 54,18 L 57.2,27.2 L 66.8,27.2 L 59,32.8 L 61.9,42 L 54,36.4 L 46.1,42 L 49,32.8 L 41.2,27.2 L 50.8,27.2 Z"
+        android:fillColor="#FFD54F"/>
+    <!-- 星星右半高光（深金色，增加立体感） -->
+    <path
+        android:pathData="M 54,18 L 57.2,27.2 L 66.8,27.2 L 59,32.8 L 61.9,42 L 54,36.4 Z"
+        android:fillColor="#FFA000"
+        android:fillAlpha="0.35"/>
+
+    <!-- 打开的书本（白色，两页对称展开，带弧度模拟书页弯曲） -->
+    <!-- 左页 -->
+    <path
+        android:pathData="M 28,50 Q 41,45 54,50 L 54,88 Q 41,83 28,88 Z"
+        android:fillColor="#FFFFFF"/>
+    <!-- 右页 -->
+    <path
+        android:pathData="M 80,50 Q 67,45 54,50 L 54,88 Q 67,83 80,88 Z"
+        android:fillColor="#FFFFFF"/>
+
+    <!-- 书脊中线（淡蓝灰，区分两页） -->
+    <path
+        android:pathData="M 54,50 L 54,88"
+        android:strokeColor="#E8EAF6"
+        android:strokeWidth="1.2"/>
+
+    <!-- 左页文字横线（淡蓝灰，模拟题目行） -->
+    <path android:pathData="M 35,60 L 48,57.5" android:strokeColor="#B0BEC5" android:strokeWidth="1.5" android:strokeLineCap="round"/>
+    <path android:pathData="M 35,66 L 48,63.5" android:strokeColor="#B0BEC5" android:strokeWidth="1.5" android:strokeLineCap="round"/>
+
+    <!-- 右页文字横线 -->
+    <path android:pathData="M 60,57.5 L 73,60" android:strokeColor="#B0BEC5" android:strokeWidth="1.5" android:strokeLineCap="round"/>
+    <path android:pathData="M 60,63.5 L 73,66" android:strokeColor="#B0BEC5" android:strokeWidth="1.5" android:strokeLineCap="round"/>
+
+    <!-- 大对勾✓（金色，象征答对/刷题正确，核心视觉） -->
+    <path
+        android:pathData="M 37,76 L 49,86 L 73,62"
+        android:strokeColor="#FFC107"
+        android:strokeWidth="6.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000"/>
+
+</vector>

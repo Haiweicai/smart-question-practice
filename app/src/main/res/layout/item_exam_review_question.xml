@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/ecoBackground"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_review_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="第 1 题"
+                android:textSize="@dimen/text_size_normal"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoOnPrimary"
+                android:background="@drawable/exam_btn_pill"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <!-- 查看试卷模式：答题卡预览入口（阅卷模式隐藏） -->
+            <TextView
+                android:id="@+id/btn_review_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▦ 答题卡"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="?attr/ecoPrimary"
+                android:textStyle="bold"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_review_stem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:textSize="17sp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <!-- 题目选项 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_options"
+            style="@style/CardView.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp">
+            <LinearLayout
+                android:id="@+id/ll_options_container"
+                style="@style/CardInnerVertical"
+                android:padding="14dp"
+                android:orientation="vertical"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 我的答案 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_my_answer"
+            style="@style/CardView.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp">
+            <LinearLayout style="@style/CardInnerVertical" android:padding="14dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的答案"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="?attr/ecoPrimary"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tv_my_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textSize="@dimen/text_size_normal"
+                    android:textColor="?attr/ecoTextPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 参考答案 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_reference"
+            style="@style/CardView.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <LinearLayout style="@style/CardInnerVertical" android:padding="14dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="参考答案"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/success"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tv_reference_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textSize="@dimen/text_size_normal"
+                    android:textColor="?attr/ecoTextPrimary"/>
+                <ImageView
+                    android:id="@+id/iv_ref_answer_img"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="6dp"
+                    android:src="@drawable/ic_info"
+                    app:tint="?attr/ecoPrimary"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 得分 -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardView.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <LinearLayout style="@style/CardInnerVertical" android:padding="14dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="本次得分："
+                        android:textSize="@dimen/text_size_normal"
+                        android:textColor="?attr/ecoTextPrimary"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/tv_score_display"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="未打分"
+                        android:textSize="@dimen/text_size_medium"
+                        android:textColor="@color/warning"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_score_in_page"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="?attr/ecoTextSecondary"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- AI 解析按钮 -->
+        <LinearLayout
+            android:id="@+id/ll_ai_analysis_entry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/btn_ai_analysis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🤖 点击获取 AI 解析"
+                android:textStyle="bold"
+                android:textColor="?attr/ecoPrimary"
+                android:textSize="@dimen/text_size_normal"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+        <!-- AI 解析（阅卷时才展示/可获取） -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_analysis"
+            style="@style/CardView.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp">
+            <LinearLayout style="@style/CardInnerVertical" android:padding="14dp">
+                <TextView
+                    android:id="@+id/tv_analysis_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📌 题目解析"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="?attr/ecoPrimary"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tv_analysis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textSize="@dimen/text_size_normal"
+                    android:textColor="?attr/ecoTextPrimary"/>
+                <ImageView
+                    android:id="@+id/iv_analysis_img"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="6dp"
+                    android:src="@drawable/ic_info"
+                    app:tint="?attr/ecoPrimary"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

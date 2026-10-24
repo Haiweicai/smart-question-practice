@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="题库"/>
+    <item
+        android:id="@+id/wrongFragment"
+        android:icon="@drawable/ic_wrong"
+        android:title="错题"/>
+    <item
+        android:id="@+id/favoriteFragment"
+        android:icon="@drawable/ic_favorite"
+        android:title="收藏"/>
+    <item
+        android:id="@+id/statisticsFragment"
+        android:icon="@drawable/ic_statistics"
+        android:title="统计"/>
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="设置"/>
+</menu>

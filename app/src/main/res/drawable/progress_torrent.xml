@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景层 -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFE8E8E8" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+    <!-- 进度层 - 炫光激流效果 -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <layer-list>
+                <!-- 底层阴影 -->
+                <item>
+                    <shape android:shape="rectangle">
+                        <solid android:color="#CC1565C0" />
+                        <corners android:radius="4dp" />
+                    </shape>
+                </item>
+                <!-- 主进度条渐变（蓝→紫→粉） -->
+                <item android:bottom="1dp" android:top="1dp">
+                    <shape android:shape="rectangle">
+                        <gradient
+                            android:angle="0"
+                            android:startColor="#FF42A5F5"
+                            android:centerColor="#FF7C4DFF"
+                            android:endColor="#FFE040FB" />
+                        <corners android:radius="3dp" />
+                    </shape>
+                </item>
+                <!-- 顶部高光光泽 -->
+                <item android:bottom="3dp" android:top="1dp" android:left="1dp" android:right="1dp">
+                    <shape android:shape="rectangle">
+                        <gradient
+                            android:angle="270"
+                            android:startColor="#CCFFFFFF"
+                            android:endColor="#00FFFFFF" />
+                        <corners android:radius="2dp" />
+                    </shape>
+                </item>
+                <!-- 炫光流动效果 -->
+                <item>
+                    <clip>
+                        <shape android:shape="rectangle">
+                            <gradient
+                                android:angle="0"
+                                android:startColor="#00FFFFFF"
+                                android:startX="0"
+                                android:centerColor="#66FFFFFF"
+                                android:centerX="0.4"
+                                android:endColor="#00FFFFFF"
+                                android:endX="0.8" />
+                            <corners android:radius="4dp" />
+                        </shape>
+                    </clip>
+                </item>
+                <!-- 前方光晕 -->
+                <item android:width="30dp" android:gravity="right">
+                    <shape android:shape="rectangle">
+                        <gradient
+                            android:angle="0"
+                            android:startColor="#00FFFFFF"
+                            android:endColor="#88FFFFFF" />
+                        <corners android:radius="4dp" />
+                    </shape>
+                </item>
+            </layer-list>
+        </clip>
+    </item>
+</layer-list>

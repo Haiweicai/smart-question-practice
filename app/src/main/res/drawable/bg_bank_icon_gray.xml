@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 班级题库条目左侧：灰色圆角方块底 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FF7A7F87"/>
+    <corners android:radius="8dp"/>
+</shape>

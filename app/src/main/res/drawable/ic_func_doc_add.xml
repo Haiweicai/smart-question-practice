@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 功能区图标：文档右下角加号（线性深色） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 文档轮廓 -->
+    <path
+        android:strokeColor="#FF333333"
+        android:strokeWidth="1.7"
+        android:strokeLineJoin="round"
+        android:pathData="M14,3 H6 C5.45,3 5,3.45 5,4 V20 C5,20.55 5.45,21 6,21 H15 C15.55,21 16,20.55 16,20 V11"/>
+    <!-- 折角 -->
+    <path
+        android:strokeColor="#FF333333"
+        android:strokeWidth="1.7"
+        android:strokeLineJoin="round"
+        android:pathData="M14,3 L14,7 C14,7.55 14.45,8 15,8 H19 L16,11"/>
+    <!-- 加号 -->
+    <path
+        android:strokeColor="#FF333333"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M17.5,13.5 V19.5 M14.5,16.5 H20.5"/>
+</vector>

@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF2F4F8">
+
+    <!-- 顶栏：返回（左）+ 标题/副标题（居中），风格与班级题库页一致 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFFFF">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="6dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_back_bank"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="返回"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_header_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="考试详情"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FF222222"/>
+
+            <TextView
+                android:id="@+id/tv_header_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="考试总结与成绩排行"
+                android:textSize="11sp"
+                android:textColor="#FF999999"
+                android:layout_marginTop="1dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_gravity="bottom"
+            android:background="#FFE5E7EB"/>
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_padding"
+            android:paddingBottom="32dp">
+
+            <!-- 成绩统计 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/ecoCardBg"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📊 成绩统计"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/ecoTextPrimary"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_avg_score"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="#FF2B6CB0"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="全班平均分"
+                                android:textSize="11sp"
+                                android:textColor="?attr/ecoTextSecondary"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_max_score"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="#FF18A058"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="最高分"
+                                android:textSize="11sp"
+                                android:textColor="?attr/ecoTextSecondary"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_min_score"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFE5484D"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="最低分"
+                                android:textSize="11sp"
+                                android:textColor="?attr/ecoTextSecondary"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_avg_duration"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="#FF722ED1"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="平均答题时长"
+                                android:textSize="11sp"
+                                android:textColor="?attr/ecoTextSecondary"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 异常考生 -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_abnormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="?attr/ecoCardBg"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="⚠ 异常考生"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/ecoTextPrimary"/>
+
+                    <TextView
+                        android:id="@+id/tv_abnormal_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 人"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFE5484D"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  查看列表 ›"
+                        android:textSize="12sp"
+                        android:textColor="?attr/ecoTextSecondary"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- AI 考试评价 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="?attr/ecoCardBg"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🤖 AI 考试评价"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/ecoTextPrimary"/>
+
+                    <ProgressBar
+                        android:id="@+id/pb_ai"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_ai_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="13sp"
+                        android:textColor="?attr/ecoTextPrimary"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_ai_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="13sp"
+                        android:textColor="?attr/ecoTextPrimary"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_ai_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="13sp"
+                        android:textColor="?attr/ecoTextPrimary"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/btn_ai_eval"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="点击生成 AI 考试整体评价"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF2B6CB0"
+                        android:background="@drawable/bg_btn_exam_action"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 排行榜 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="?attr/ecoCardBg"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏆 成绩排行榜"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/ecoTextPrimary"/>
+
+                    <LinearLayout
+                        android:id="@+id/ll_rank_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="8dp"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <ProgressBar
+                android:id="@+id/pb_loading"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_publish_rank"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:text="发布排行榜给学生"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFFFF"
+                app:cornerRadius="25dp"
+                app:backgroundTint="#FF2B6CB0"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

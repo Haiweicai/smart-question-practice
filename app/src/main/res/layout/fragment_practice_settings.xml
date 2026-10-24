@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/ecoBackground">
+
+    <!-- ============== 顶部标题栏（与考试页一致的蓝渐变） ============== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        android:background="@drawable/top_bar_bg">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="‹ 返回"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoPrimary"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="12dp"/>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_exam"
+            android:contentDescription="答题设置"
+            android:tint="?attr/ecoPrimary"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="答题设置"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoPrimary"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="96dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ========== 自动跳转设置卡 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="?attr/ecoSurface"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- 标题行 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/badge_bg_primary"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="⏱"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:text="自动跳转时间"
+                            android:textSize="@dimen/text_size_large"
+                            android:textStyle="bold"
+                            android:textColor="?attr/ecoTextPrimary"/>
+
+                        <TextView
+                            android:id="@+id/tv_jump_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2 秒"
+                            android:textSize="@dimen/text_size_medium"
+                            android:textStyle="bold"
+                            android:textColor="?attr/ecoPrimary"
+                            android:background="@drawable/badge_bg_primary"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="4dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="刷题答对后，自动跳转下一题的等待时间"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="?attr/ecoTextSecondary"/>
+
+                    <!-- 滑动条 -->
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/slider_jump_seconds"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginHorizontal="4dp"
+                        android:stepSize="1.0"
+                        android:valueFrom="0.0"
+                        android:valueTo="10.0"
+                        android:value="2.0"
+                        app:labelBehavior="floating"
+                        app:thumbColor="?attr/ecoPrimary"
+                        app:trackColorActive="?attr/ecoPrimary"
+                        app:trackColorInactive="?attr/ecoPrimaryLightBg"/>
+
+                    <!-- 刻度标签 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp"
+                        android:paddingHorizontal="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0s 立即"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="?attr/ecoTextSecondary"
+                            android:gravity="start"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5s"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="?attr/ecoTextSecondary"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="10s"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="?attr/ecoTextSecondary"
+                            android:gravity="end"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_jump_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="💡 0s 为答对后立即跳转；点击下方「关闭」可禁用自动跳转、手动翻页作答"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="?attr/ecoTextSecondary"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== 快捷选项卡 ========== -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="?attr/ecoSurface"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="快捷选项"
+                        android:textSize="@dimen/text_size_large"
+                        android:textStyle="bold"
+                        android:textColor="?attr/ecoTextPrimary"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="14dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_preset_off"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="关闭"
+                            android:textSize="@dimen/text_size_normal"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_preset_2s"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="2 秒"
+                            android:textSize="@dimen/text_size_normal"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_preset_3s"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="3 秒"
+                            android:textSize="@dimen/text_size_normal"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_preset_5s"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5 秒"
+                            android:textSize="@dimen/text_size_normal"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ============== 底部保存按钮（Sticky + 渐变美化） ============== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="24dp"
+        android:background="?attr/ecoBackground">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="✓  保存设置"
+            android:textColor="?attr/ecoOnPrimary"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            android:background="@drawable/bg_btn_save_ripple"
+            android:stateListAnimator="@animator/btn_press_animator"
+            app:iconSize="0dp"
+            app:cornerRadius="20dp"
+            app:elevation="6dp"
+            app:pressedTranslationZ="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>

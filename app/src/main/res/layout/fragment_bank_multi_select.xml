@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/ecoBackground">
+
+    <!-- 顶部标题栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/layout_padding"
+        android:background="?attr/ecoCardBg">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="‹ 返回"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="?attr/ecoPrimary"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="12dp"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="选择要组卷的题库"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold"
+            android:textColor="?attr/ecoTextPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_select_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全选"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="?attr/ecoPrimary"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_selected_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="已选 0 个题库，可单选或多选混合组卷"
+        android:textSize="@dimen/text_size_small"
+        android:textColor="?attr/ecoTextSecondary"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding"
+        android:paddingTop="10dp"
+        android:paddingBottom="4dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_banks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding"
+        android:paddingBottom="16dp"/>
+
+    <FrameLayout
+        android:id="@+id/layout_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="暂无可用题库\n请先导入题库"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="?attr/ecoTextHint"/>
+    </FrameLayout>
+
+    <!-- 底部操作 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_margin="@dimen/layout_padding"
+        android:text="下一步：配置试卷"
+        android:textSize="@dimen/text_size_medium"
+        style="@style/Button.Primary"
+        app:cornerRadius="@dimen/corner_radius_large"/>
+
+</LinearLayout>

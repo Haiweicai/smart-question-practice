@@ -1,21 +1,35 @@
-# 智能刷题 · 开源框架版
+# 智能刷题（Android）
 
-一个**只有外壳、接口和数据结构**的智能刷题 Android 应用骨架。
+一个智能刷题 Android 应用：题库自建、五种刷题模式、模拟考试、错题本、收藏、学习统计、局域网联机考试，可选 AI 判卷与 AI 解析。
 
-代码里的业务逻辑（题库解析算法、AI 判分、班级/好友/考试的完整实现、服务端监控面板等）
-属于私有业务资产，**不在本仓库中**。你拿到的是一个可以编译、可以运行、可以二次开发的完整框架：
+本仓库有两种用法：
 
-- 页面已经画好、跳转已经配好
-- 数据库表结构已经定义
-- 每个功能都留了一个 Java 接口 + 一份空实现
-- 服务端提供了全部路由和表结构（返回 501，等你实现）
+- **普通用户（不想写代码）**：直接下载安装包使用 → 见下方「下载安装」和 [docs/USER_GUIDE.md](docs/USER_GUIDE.md)
+- **开发者**：基于骨架源码二次开发 → 见下方「开发者快速开始」和 [docs/INTERFACES.md](docs/INTERFACES.md)
 
-## 它长什么样
+> 仓库内的**源码**是只有外壳、接口和数据结构的骨架版本。
+> 业务实现（题库解析算法、AI 判分、班级/好友/考试的完整实现、服务端监控面板等）属于私有业务资产，不在仓库中。
+> 面向普通用户的完整安装包，以 Releases 页面发布的 APK 为准。
+
+## 下载安装（普通用户）
+
+1. 打开 [Releases](../../releases/latest) 页面；
+2. 下载最新版 `smart_question_practice_v10.85.41.apk`；
+3. 传到安卓手机/平板后安装（Android 8.0 及以上，iOS 不支持）。
+
+| 版本 | 大小 | 系统要求 | SHA-256 |
+| --- | --- | --- | --- |
+| v10.85.41 | 22.57 MB | Android 8.0+ | `9D7606F0231F38DD12269AC6C07A708839D865B71AB7A31F176BDDD8530512A1` |
+
+安装步骤、五种刷题模式、模拟考试、局域网联机、AI 密钥配置、常见问题，全部写在
+**[docs/USER_GUIDE.md](docs/USER_GUIDE.md)**。
+
+## 框架长什么样（开发者）
 
 启动后可以正常进入首页、切换底部导航、打开每个页面；点击任何业务按钮会提示「功能尚未实现」，
 不会崩溃。所有需要你补的地方都用 `TODO` 和 `docs/INTERFACES.md` 标出来了。
 
-## 快速开始
+## 开发者快速开始
 
 ### 1. 编译 App
 
@@ -84,13 +98,14 @@ app/src/main/java/com/example/smart_question_practice/
 ├── network/                 # Retrofit 接口与客户端（BizApi / StatsApi / AiQuestionApi）
 └── ui/                      # 41 个页面（布局 + 空壳 Fragment）
 server/                      # Node.js 服务端骨架（路由 + 表结构）
-docs/                        # 架构 / 接口 / 部署 / 二次开发文档
+docs/                        # 使用说明 / 架构 / 接口 / 部署 / 二次开发文档
 ```
 
 ## 我要改哪里？
 
 | 想做的事 | 看这里 |
 | --- | --- |
+| 作为普通用户下载、安装、使用 | [docs/USER_GUIDE.md](docs/USER_GUIDE.md) |
 | 知道每个接口要做什么 | [docs/INTERFACES.md](docs/INTERFACES.md) |
 | 知道服务端每个路由的字段 | [docs/API.md](docs/API.md) |
 | 理解整体分层与数据流 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |

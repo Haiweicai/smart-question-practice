@@ -20,8 +20,10 @@
 
 ## 二、下载
 
-1. 打开本仓库右侧的 **Releases**（或直接访问 `../../releases/latest`）。
-2. 在最新版本的 **Assets** 中下载：
+1. 打开本仓库的 [Releases 页面](https://github.com/Haiweicai/smart-question-practice/releases/latest)。
+2. 在最新版本的 **Assets** 中下载（也可直接点击下载）：
+
+<https://github.com/Haiweicai/smart-question-practice/releases/download/v10.85.41/smart_question_practice_v10.85.41.apk>
 
 ```
 smart_question_practice_v10.85.41.apk

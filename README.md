@@ -13,8 +13,8 @@
 
 ## 下载安装（普通用户）
 
-1. 打开 [Releases](../../releases/latest) 页面；
-2. 下载最新版 `smart_question_practice_v10.85.41.apk`；
+1. 打开 [Releases](https://github.com/Haiweicai/smart-question-practice/releases/latest) 页面；
+2. 下载最新版 [`smart_question_practice_v10.85.41.apk`](https://github.com/Haiweicai/smart-question-practice/releases/download/v10.85.41/smart_question_practice_v10.85.41.apk)；
 3. 传到安卓手机/平板后安装（Android 8.0 及以上，iOS 不支持）。
 
 | 版本 | 大小 | 系统要求 | SHA-256 |
